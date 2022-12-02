@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>路由配置，声明式导航传参、编程式导航传参，路由守卫，路由重定向 - 反抗军</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="前端,"> 
+    <meta name="description" content="路由配置步骤：
+
+安装
+12// 1. 下载vue-routernpm i vue-router@3.5.1
+在main.js 中导入路由
+12// 2. 引入import VueRouter fr,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="反抗军" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="路由配置，声明式导航传参、编程式导航传参，路由守卫，路由重定向 - 反抗军"/>
+    <meta name="twitter:description" content="路由配置步骤：
+
+安装
+12// 1. 下载vue-routernpm i vue-router@3.5.1
+在main.js 中导入路由
+12// 2. 引入import VueRouter fr,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="反抗军"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="路由配置，声明式导航传参、编程式导航传参，路由守卫，路由重定向 - 反抗军"/>
+    <meta property="og:description" content="路由配置步骤：
+
+安装
+12// 1. 下载vue-routernpm i vue-router@3.5.1
+在main.js 中导入路由
+12// 2. 引入import VueRouter fr,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">反抗军</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">路由配置，声明式导航传参、编程式导航传参，路由守卫，路由重定向</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">路由配置，声明式导航传参、编程式导航传参，路由守卫，路由重定向</h1>
+        <div class="stuff">
+            <span>十二月 02, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/tags/" rel="tag">tags</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h3><p>步骤：</p>
+<ol>
+<li><p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 1. 下载vue-router</span><br><span class="line">npm i vue-router@3.5.1</span><br></pre></td></tr></table></figure></li>
+<li><p>在main.js 中导入路由</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2. 引入</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">VueRouter</span> <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>使用路由插件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在vue中，使用使用vue的插件，都需要调用Vue.use()</span></span><br><span class="line"><span class="comment">// 3. 注册全局组件</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">VueRouter</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>创建路由规则数组 -  规则指的是：建立路由与页面组件的一一对应关系</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 4.1 引入页面组件</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Find</span> <span class="keyword">from</span> <span class="string">&#x27;./views/Find.vue&#x27;</span> <span class="comment">// @是src的绝对地址</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">My</span> <span class="keyword">from</span> <span class="string">&#x27;./views/My.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Part</span> <span class="keyword">from</span> <span class="string">&#x27;./views/Part.vue&#x27;</span></span><br><span class="line"><span class="comment">// 4.2 规则数组</span></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;/find&quot;</span>, <span class="comment">// 路由</span></span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">Find</span>， <span class="comment">// 组件名称</span></span><br><span class="line">      <span class="attr">children</span>: [ <span class="comment">// 二级路由数组</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;recommend&#x27;</span>,</span><br><span class="line">        <span class="attr">component</span>: <span class="title class_">Recommend</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;ranking&#x27;</span>,</span><br><span class="line">        <span class="attr">component</span>: <span class="title class_">Ranking</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;songList&#x27;</span>,</span><br><span class="line">        <span class="attr">component</span>: <span class="title class_">SongList</span></span><br><span class="line">      &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;/my&quot;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">My</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;/part&quot;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">Part</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+<li><p>创建路由对象 -  传入规则</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 5. 生成路由对象（传入配置对象）</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  routes,<span class="comment">// routes是固定key(传入规则数组)</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>5.5   创建完路由实例后，可以设置路由守卫</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">路由前置守卫 beforeEach</span><br><span class="line">  语法: </span><br><span class="line">  router.beforeEach((to, from, next) =&gt; &#123;</span><br><span class="line">    to: 要跳转到那个路由地址 - 目标</span><br><span class="line">    from: 从哪里跳转过去 - 来源</span><br><span class="line">    next: 接下来该干嘛（1. 阻止跳转，    2. 正常跳转    3. 改变跳转） - 行为</span><br><span class="line">      =&gt;                next(false)    next(true)     next(&#x27;/改变跳转的路由地址&#x27;)</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">router.beforeEach((to, from, next) =&gt; &#123;</span><br><span class="line">  console.log(to, from)</span><br><span class="line">  // 1. 如果是从 /my 跳转到 /part 时，阻止跳转</span><br><span class="line">  if (from.path === &#x27;/my&#x27; &amp;&amp; to.path === &#x27;/part&#x27;) &#123;</span><br><span class="line">    next(false)</span><br><span class="line">    // 2. 如果从 /find 跳转到 /part时，转为跳转到 /my</span><br><span class="line">  &#125; else if (from.path === &#x27;/find&#x27; &amp;&amp; to.path === &#x27;/part&#x27;) &#123;</span><br><span class="line">    next(&#x27;/my&#x27;)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    next(true)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="6">
+<li>关联到vue实例</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">  router</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>设置App.vue引入挂载路由组件</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;div class=&quot;footer_wrap&quot;&gt;</span><br><span class="line">      &lt;a href=&quot;#/find&quot;&gt;发现音乐&lt;/a&gt;</span><br><span class="line">      &lt;a href=&quot;#/my&quot;&gt;我的音乐&lt;/a&gt;</span><br><span class="line">      &lt;a href=&quot;#/part&quot;&gt;朋友&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;top&quot;&gt;</span><br><span class="line">      &lt;!-- 7. 设置挂载点-当url的hash值路径切换, 显示规则里对应的组件到这 --&gt;</span><br><span class="line">      &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="声明式导航-通过标签进行路由跳转"><a href="#声明式导航-通过标签进行路由跳转" class="headerlink" title="声明式导航 - 通过标签进行路由跳转"></a><strong>声明式导航 - 通过标签进行路由跳转</strong></h3><ol>
+<li> vue-router提供了一个全局组件 router-link</li>
+<li> router-link实质上最终会渲染成a链接 to属性等价于提供 href属性**(to无需#)**</li>
+<li> router-link提供了声明式导航高亮的功能(自带类名)</li>
+</ol>
+<p>总结 router-link 标签与 a标签 的区别</p>
+<ol>
+<li><p>虽然在vue模板中写作 router-link, 但是在真实dom挂载后本质上是 a标签</p>
+</li>
+<li><p>to 属性 代替了 href属性 进行页面跳转</p>
+</li>
+<li><p>to属性后面接的路由地址不必带 # 号</p>
+</li>
+<li><p>router-link 自带了2个class类名 router-link-exact-active / router-link-active</p>
+<p>​      =&gt; 这两个类可以作为路由导航的高亮类名来使用</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;#/find&quot;&gt;发现音乐&lt;/a&gt;</span><br><span class="line">&lt;a href=&quot;#/my&quot;&gt;我的音乐&lt;/a&gt;</span><br><span class="line">&lt;a href=&quot;#/part&quot;&gt;朋友&lt;/a&gt;</span><br><span class="line">上下效果一样</span><br><span class="line">&lt;router-link to=&quot;/find&quot;&gt;发现音乐&lt;/router-link&gt;</span><br><span class="line">&lt;router-link to=&quot;/my&quot;&gt;我的音乐&lt;/router-link&gt;</span><br><span class="line">&lt;router-link to=&quot;/part?userName=小坤&quot;&gt;朋友A&lt;/router-link&gt;</span><br><span class="line">&lt;router-link to=&quot;/part/东东&quot;&gt;朋友B&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="声明式导航传参的两种方式"><a href="#声明式导航传参的两种方式" class="headerlink" title="声明式导航传参的两种方式"></a>声明式导航传参的两种方式</h5><p>1.to=”/路由地址?参数名1=参数值1&amp;参数名2=参数值2”</p>
+<p>​     =&gt; 接收: 在对应组件中， 以 $route.query.参数名 的形式进行接收对应参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">发送参数的组件</span><br><span class="line">&lt;router-link to=&quot;/part?userName=小坤&quot;&gt;朋友A&lt;/router-link&gt;</span><br><span class="line">&lt;router-link to=&quot;/part/东东&quot;&gt;朋友B&lt;/router-link&gt;</span><br><span class="line">接收参数的组件</span><br><span class="line">&lt;div&gt;query接收参数： 双&#123; $route.query.userName 双&#123; &lt;div&gt;</span><br><span class="line">&lt;div&gt;params接收参数： 双&#123; $route.params.userName 双 &lt;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2.to=”/路由地址/参数值”</p>
+<p>​      在路由规则数组的对应路由地址中，需要设置 path: ‘/路由地址/:参数名’</p>
+<p>​     =&gt; 接收：在对应组件中，以 $route.params.参数名 的形式进行接收对应参数</p>
+<p> 注意事项： 如果使用 /路由地址/参数值 的传参方式，那么原本正常的不传参的路由将无法被访问到</p>
+<p>​     解决办法:  可以再创建一个没有传参要求的路由规则</p>
+<p>第一种方法的优势：</p>
+<ol>
+<li><p>传参代码都在一个文件中，方便阅读</p>
+</li>
+<li><p>方法二需要重新创建一个带有传参规则的路由规则对象，麻烦</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">发送参数的组件</span><br><span class="line">&lt;router-link to=&quot;/part?userName=小坤&quot;&gt;朋友A&lt;/router-link&gt;</span><br><span class="line">&lt;router-link to=&quot;/part/东东&quot;&gt;朋友B&lt;/router-link&gt;</span><br><span class="line">接收参数的组件</span><br><span class="line">&lt;div&gt;query接收参数： 双&#123; $route.query.userName 双&#123;&lt;/div&gt;</span><br><span class="line">&lt;div&gt;params接收参数： 双&#123; $route.params.userName 双&#123;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="路由重定向和模式修改"><a href="#路由重定向和模式修改" class="headerlink" title="路由重定向和模式修改"></a>路由重定向和模式修改</h3><p>场景：首次进入页面时，没有任何路由的hash值，页面元素会显示空白，如何解决？</p>
+<p><strong>实际作用：</strong></p>
+<ol>
+<li>当某个路由在使用过程中废弃掉之后，将原来路由地址重定向到其他地址</li>
+<li>当满足某个条件时（如：登录信息过期），可以重定向到某个指定位置</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    path: &quot;/&quot;, // 默认hash值路径</span><br><span class="line">    redirect: &quot;/find&quot; // 重定向到/find</span><br><span class="line">    // 浏览器url中#后的路径被改变成/find-重新匹配数组规则</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h5 id="路由-404页面"><a href="#路由-404页面" class="headerlink" title="路由 - 404页面"></a>路由 - 404页面</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import NotFound from &#x27;@/views/NotFound&#x27;</span><br><span class="line"></span><br><span class="line">const routes = [</span><br><span class="line">  // ...省略了其他配置</span><br><span class="line">  // 404在最后(规则是从前往后逐个比较path)</span><br><span class="line">  &#123;</span><br><span class="line">    path: &quot;*&quot;,</span><br><span class="line">    component: NotFound</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h5 id="模式修改"><a href="#模式修改" class="headerlink" title="模式修改"></a>模式修改</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">1. hash 模式（默认）: 网址中带有 # 号</span><br><span class="line">2. history模式： 网址中不带 # 号</span><br><span class="line">history模式的路由形式 与 接口请求形式是一致的，后端在不做任何配置的情况下是无法分别究竟是路由跳转还是接口请求，所以如果以后需要在项目中做history模式的路由跳转时，需要后端同事的支持</span><br><span class="line">  routes,</span><br><span class="line">  mode: &quot;history&quot; // 打包上线后需要后台支持, 模式是hash</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="编程式导航"><a href="#编程式导航" class="headerlink" title="编程式导航"></a>编程式导航</h3><p>编程式传参才有name</p>
+<p><strong>代码规范：</strong>一般情况下，path除去<code>/</code>以外的部分和name需要保持一致</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#123;</span><br><span class="line">    path: &quot;路由路径&quot;</span><br><span class="line">    name: &quot;路由名&quot;,</span><br><span class="line">    query: &#123;</span><br><span class="line">    	&quot;参数名&quot;: 值</span><br><span class="line">    &#125;</span><br><span class="line">    params: &#123;</span><br><span class="line">		&quot;参数名&quot;: 值</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 方式1:</span><br><span class="line">// params =&gt; $route.params.参数名</span><br><span class="line"></span><br><span class="line">// 方式2:</span><br><span class="line">// query =&gt; $route.query.参数名</span><br></pre></td></tr></table></figure>
+
+<p> 注意事项： 编程式导航会遇到一个小问题，当处在A路由上时，想用编程式导航跳转到A路由，会报出错误阻止你重复的跳转<br>        传参特点：</p>
+<pre><code>         1. path跳转用query发送数据， name跳转用params发送数据
+         2. query传参会拼接到url上，而params传参不会拼接到url上
+         3. 通过编程式导航的params传参，如果刷新页面，传递的数据会消失
+         4. name也可以使用query传参，但为了保证代码的统一性，尽量不要使用这种传参方式
+</code></pre>
+<h5 id="编程式导航的传参的两种方法"><a href="#编程式导航的传参的两种方法" class="headerlink" title="编程式导航的传参的两种方法"></a>编程式导航的传参的两种方法</h5><ol>
+<li>this.$router.push({</li>
+</ol>
+<p>​     path: ‘/路由地址’, // 需要跳转到的路由地址</p>
+<p>​     query: {} // path跳转用query来发送数据</p>
+<p>​    })</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">发送参数的组件</span><br><span class="line">&lt;span @click=&quot;goPath(&#x27;/part&#x27;, &#x27;part&#x27;)&quot;&gt;朋友A&lt;/span&gt;</span><br><span class="line">export default &#123;</span><br><span class="line"> methods: &#123;</span><br><span class="line">    // 通过path属性进行跳转</span><br><span class="line">    goPath (myPath, myName) &#123;</span><br><span class="line">      this.$router.push(&#123;</span><br><span class="line">        path: myPath,</span><br><span class="line">        query: &#123;</span><br><span class="line">          userName: &#x27;东东&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">接收参数的组件</span><br><span class="line">&lt;div&gt;query接收参数： 双&#123; $route.query.userName 双&#123;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>this.$router.push({</li>
+</ol>
+<p>​     name: ‘路由名称’, // 在路由规则数组中配置的路由名称</p>
+<p>​     params: {} // name跳转用params发送数据</p>
+<p>​    })</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">发送参数的组件</span><br><span class="line">&lt;span @click=&quot;goName(&#x27;/part&#x27;, &#x27;part&#x27;)&quot;&gt;朋友B&lt;/span&gt;</span><br><span class="line">export default &#123;</span><br><span class="line"> methods: &#123;</span><br><span class="line">    // 通过name属性进行跳转</span><br><span class="line">    goName (myPath, myName) &#123;</span><br><span class="line">      this.$router.push(&#123;</span><br><span class="line">        name: myName,</span><br><span class="line">        params: &#123;</span><br><span class="line">          userName: &#x27;欢欢&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">接收参数的组件</span><br><span class="line">&lt;div&gt;params接收参数： 双&#123; $route.params.userName 双&#123;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="路由嵌套"><a href="#路由嵌套" class="headerlink" title="路由嵌套"></a>路由嵌套</h3><p> 路由与路由之间也可能存在嵌套关系</p>
+<p>注意事项：</p>
+<p>​     1. 要明确一级路由、二级路由等等他们的挂载点到底在那个组件上，在对应组件中设置router-view</p>
+<pre><code>    2. 非一级路由的规则对象中path属性不可以添加 &#39;/&#39;
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">语法： 如果两个页面组件存在路由的嵌套关系，那么可以在路由规则数组中以children属性定义嵌套</span><br><span class="line">          &#123;</span><br><span class="line">            path: &#x27;/一级路由&#x27;,</span><br><span class="line">            component: &#x27;外层组件&#x27;,</span><br><span class="line">            children: [</span><br><span class="line">              &#123;</span><br><span class="line">                path: &#x27;二级路由&#x27;,</span><br><span class="line">                component: &#x27;内层组件&#x27;</span><br><span class="line">              &#125;</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">使用是要把一级路由二级路由....后续的所有联系拼接好后作出跳转</span><br><span class="line">to=&quot;/一级路由/二级路由/...&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">路由配置4.2中</span><br><span class="line">const routes = [</span><br><span class="line">      &#123;</span><br><span class="line">    path: &#x27;/find&#x27;, // 路由</span><br><span class="line">    name: &#x27;find&#x27;,</span><br><span class="line">    component: Find, // 组件</span><br><span class="line">    children: [ // 二级路由数组</span><br><span class="line">      &#123;</span><br><span class="line">        path: &#x27;recommend&#x27;,</span><br><span class="line">        component: Recommend</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">在一级路由中</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;router-link to=&quot;/find/recommend&quot;&gt;推荐&lt;/router-link&gt;</span><br><span class="line">    &lt;div style=&quot;border: 1px solid red;&quot;&gt;</span><br><span class="line">      &lt;!-- 二级路由的挂载点 --&gt;</span><br><span class="line">      &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="声明导航-类名区别"><a href="#声明导航-类名区别" class="headerlink" title="声明导航 - 类名区别"></a>声明导航 - 类名区别</h3><p>声明式导航两个类名的意义</p>
+<p>​     router-link-exact-active：(精确匹配)  router-link 中 to属性里的路由地址完全匹配浏览器url上的路由地址时出现</p>
+<p>​     router-link-active: (模糊匹配) router-link 中 to属性里的路由地址一部分 包含在 浏览器url上的路由地址时 出现</p>
+<h3 id="全局前置守卫（路由守卫）-beforeEach"><a href="#全局前置守卫（路由守卫）-beforeEach" class="headerlink" title="全局前置守卫（路由守卫） beforeEach"></a>全局前置守卫（路由守卫） beforeEach</h3><p>目的: 路由跳转之前, 先执行一次前置守卫函数, 判断是否可以正常跳转</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">语法: </span><br><span class="line">  router.beforeEach((to, from, next) =&gt; &#123;</span><br><span class="line">    to: 要跳转到那个路由地址 - 目标</span><br><span class="line">    from: 从哪里跳转过去 - 来源</span><br><span class="line">    next: 接下来该干嘛（1. 阻止跳转，    2. 正常跳转    3. 改变跳转） - 行为</span><br><span class="line">      =&gt;                next(false)    next(true)     next(&#x27;/改变跳转的路由地址&#x27;)</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">router.beforeEach((to, from, next) =&gt; &#123;</span><br><span class="line">  console.log(to, from)</span><br><span class="line">  // 1. 如果是从 /my 跳转到 /part 时，阻止跳转</span><br><span class="line">  if (from.path === &#x27;/my&#x27; &amp;&amp; to.path === &#x27;/part&#x27;) &#123;</span><br><span class="line">    next(false)</span><br><span class="line">    // 2. 如果从 /find 跳转到 /part时，转为跳转到 /my</span><br><span class="line">  &#125; else if (from.path === &#x27;/find&#x27; &amp;&amp; to.path === &#x27;/part&#x27;) &#123;</span><br><span class="line">    next(&#x27;/my&#x27;)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    next(true)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// next(true) === next()</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r="龙"
+        data-o="龙"
+        data-a="龙"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">路由配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%AF%BC%E8%88%AA-%E9%80%9A%E8%BF%87%E6%A0%87%E7%AD%BE%E8%BF%9B%E8%A1%8C%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC"><span class="toc-number">2.</span> <span class="toc-text">声明式导航 - 通过标签进行路由跳转</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%AF%BC%E8%88%AA%E4%BC%A0%E5%8F%82%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">2.0.1.</span> <span class="toc-text">声明式导航传参的两种方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E6%A8%A1%E5%BC%8F%E4%BF%AE%E6%94%B9"><span class="toc-number">3.</span> <span class="toc-text">路由重定向和模式修改</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1-404%E9%A1%B5%E9%9D%A2"><span class="toc-number">3.0.1.</span> <span class="toc-text">路由 - 404页面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E4%BF%AE%E6%94%B9"><span class="toc-number">3.0.2.</span> <span class="toc-text">模式修改</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-number">4.</span> <span class="toc-text">编程式导航</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E5%BC%8F%E5%AF%BC%E8%88%AA%E7%9A%84%E4%BC%A0%E5%8F%82%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-number">4.0.1.</span> <span class="toc-text">编程式导航的传参的两种方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%B5%8C%E5%A5%97"><span class="toc-number">5.</span> <span class="toc-text">路由嵌套</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%AF%BC%E8%88%AA-%E7%B1%BB%E5%90%8D%E5%8C%BA%E5%88%AB"><span class="toc-number">6.</span> <span class="toc-text">声明导航 - 类名区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%89%8D%E7%BD%AE%E5%AE%88%E5%8D%AB%EF%BC%88%E8%B7%AF%E7%94%B1%E5%AE%88%E5%8D%AB%EF%BC%89-beforeEach"><span class="toc-number">7.</span> <span class="toc-text">全局前置守卫（路由守卫） beforeEach</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
