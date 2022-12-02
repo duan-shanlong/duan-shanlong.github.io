@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AJAX总结和分析 - 反抗军</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="前端,"> 
+    <meta name="description" content="xhr
+创建xhr实例           const xhr = new XMLHttpRequest()
+
+设置请求方法和地址        xhr.open(‘GET’, url)
+
+如果是P,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="反抗军" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="AJAX总结和分析 - 反抗军"/>
+    <meta name="twitter:description" content="xhr
+创建xhr实例           const xhr = new XMLHttpRequest()
+
+设置请求方法和地址        xhr.open(‘GET’, url)
+
+如果是P,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="反抗军"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="AJAX总结和分析 - 反抗军"/>
+    <meta property="og:description" content="xhr
+创建xhr实例           const xhr = new XMLHttpRequest()
+
+设置请求方法和地址        xhr.open(‘GET’, url)
+
+如果是P,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">反抗军</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">AJAX总结和分析</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">AJAX总结和分析</h1>
+        <div class="stuff">
+            <span>十一月 19, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/tags/" rel="tag">tags</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="xhr"><a href="#xhr" class="headerlink" title="xhr"></a>xhr</h1><ol>
+<li><p>创建xhr实例           const xhr = new XMLHttpRequest()</p>
+</li>
+<li><p>设置请求方法和地址        xhr.open(‘GET’, url)</p>
+</li>
+<li><p>如果是POST请求 ，告诉后端发送的参数是什么形式的       xhr.setRequestHeader(‘content-type’,’application/json’)</p>
+</li>
+<li><p>发送请求         xhr.send()</p>
+</li>
+<li><p>注册回调      </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const xhr = new XMLHttpRequest()</span><br><span class="line">xhr.open(&#x27;POST&#x27;,url)</span><br><span class="line">xhr.setRequestHeader(&#x27;content-type&#x27;,&#x27;application/x-www-form-                   urlencoded&#x27;)</span><br><span class="line">xhr.send(params)</span><br><span class="line">xhr.responseType = &#x27;json&#x27;</span><br><span class="line">xhr.addEventListener(&#x27;readystatechange&#x27;,()=&gt;&#123;</span><br><span class="line">    if(xhr.readyState !==4) return</span><br><span class="line">    if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt;300)&#123;</span><br><span class="line">        console.log(xhr.response)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        console.log(&#x27;错误&#x27;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>readyState  ==&gt; 请求状态码  ， xhr的状态</p>
+<p>0  表示请求未初始化，还没有调用 open()</p>
+<p>1  表示服务器已建立 但是还没有 调用send()</p>
+<p>2  请求已接收， 正在处理中 </p>
+<p>3  请求处理中  已经有部分数据响应了，没有全部完成</p>
+<p>4  请求已完成 （全部数据已经下载完了）</p>
+<p>status http状态码</p>
+<p>表示请求成功的http状态码  200-299</p>
+<p>xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300 || xhr.status === 304</p>
+<h1 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h1><p>fetch 两段 then，错误全 catch</p>
+<p>fetch 两个参数，url，config</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">        fetch(url,&#123;</span><br><span class="line">            method:&quot;post&quot;,</span><br><span class="line">            headers:&#123;&#x27;content-type&#x27;:&quot;application/json&quot;&#125;,</span><br><span class="line">            body:JSON.stringify(params)</span><br><span class="line">        &#125;).then(res =&gt; res.json())</span><br><span class="line">        .then(res =&gt; console.log(res))</span><br><span class="line">        .catch(err =&gt; console.log(err))</span><br><span class="line">//get </span><br><span class="line">        fetch(&#x27;http://ajax-api.itheima.net/api/news&#x27;)</span><br><span class="line">        .then(res =&gt; res.json())</span><br><span class="line">        .then(res =&gt; console.log(res))</span><br><span class="line">        .catch(err =&gt; console.log(err))</span><br><span class="line">//post</span><br><span class="line">        fetch(&#x27;http://ajax-api.itheima.net/api/login&#x27;,&#123;</span><br><span class="line">            method:&quot;post&quot;,</span><br><span class="line">            headers:&#123;&#x27;content-type&#x27;:&quot;application/json&quot;&#125;,</span><br><span class="line">            body:JSON.stringify(params)</span><br><span class="line">        &#125;).then(res =&gt; res.json())</span><br><span class="line">        .then(res =&gt; console.log(res))</span><br><span class="line">        .catch(err =&gt; console.log(err))</span><br></pre></td></tr></table></figure>
+
+<h1 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">axions(&#123;</span><br><span class="line">method:&quot;POST&quot;,</span><br><span class="line">data:&#123;&#125;, // 直接绑定 data （fetch 需要转换格式绑定在 body 上）</span><br><span class="line">params: &#123;&#125;， // params 会绑定在 url 查询上</span><br><span class="line">headers:&#123;</span><br><span class="line">&quot;content-type&quot;:&quot;application/json&quot; // headers 与 fetch ⼀致，</span><br><span class="line">但是默认值是 “application/json”</span><br><span class="line">&#125;</span><br><span class="line">&#125;).then(res=&gt;&#123;</span><br><span class="line">// res.data 返回结果，res.status 返回状态</span><br><span class="line">// 没有第⼆段 then</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//get</span><br><span class="line">axios(&#123;url&#125;)</span><br><span class="line">.then(res =&gt; console.log(res))</span><br><span class="line"></span><br><span class="line">//post</span><br><span class="line">axios(&#123;</span><br><span class="line">method:&quot;POST&quot;,</span><br><span class="line">data:&#123;&#125;,</span><br><span class="line">params: &#123;加载地址后面的&#125;，</span><br><span class="line">headers:&#123;&quot;content-type&quot;:&quot;application/json&quot; &#125;</span><br><span class="line">&#125;).then(res =&gt; console.log(res。data))</span><br></pre></td></tr></table></figure>
+
+<h1 id="宏任务和微任务"><a href="#宏任务和微任务" class="headerlink" title="宏任务和微任务"></a>宏任务和微任务</h1><p><strong>宏任务</strong></p>
+<p>1.script</p>
+<p>2.setTimeout</p>
+<p>3.setInterval </p>
+<p>4.setImmediate</p>
+<p>5.UI事件</p>
+<p>6.addEventListener</p>
+<p>7.I/O(Node.js)</p>
+<p><strong>微任务</strong></p>
+<p>1.promise.then()  promise.catch()</p>
+<p>2.async-await</p>
+<p>3.mutationObserver  &gt;&gt;&gt;监听DOM的改变</p>
+<p>4.process.NextTick()  &gt;&gt;&gt;&gt; Node</p>
+<p>宏 batch 批处理 它干了很多事（宏任务里面有多个微任务）</p>
+<p>一个宏任务，可以发起，很多个微任务（微任务列表）</p>
+<h1 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h1><p><strong>宏任务 –&gt; 微任务队列 –&gt; 渲染 –&gt; 下⼀个宏任务 –&gt; 下⼀个微任务队列 …</strong></p>
+<p>1.首先script代码块可以看作是第一个宏任务，开始第一个Tick事件循环</p>
+<p>2.首先执行script代码块中的同步代码</p>
+<p>3.如果遇到宏任务，就放到宏任务队列中等待执行，如果遇到微任务，放到微任务队列中</p>
+<p>4.再去执行下一个宏任务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">async function async1() &#123;</span><br><span class="line">    console.log(&#x27;async1 start&#x27;)</span><br><span class="line">    await async2()</span><br><span class="line">    console.log(&#x27;async1 end&#x27;)</span><br><span class="line">    // async2().then(</span><br><span class="line">    //     console.log(&#x27;async1 end&#x27;)</span><br><span class="line">    // )</span><br><span class="line">&#125;</span><br><span class="line">async function async2() &#123;</span><br><span class="line">    console.log(&#x27;async2&#x27;)</span><br><span class="line">&#125;</span><br><span class="line">console.log(&#x27;script start&#x27;)</span><br><span class="line">setTimeout(function () &#123;</span><br><span class="line">    console.log(&#x27;setTimeout&#x27;)</span><br><span class="line">&#125;, 0)</span><br><span class="line">async1();</span><br><span class="line">new Promise(function (resolve) &#123;</span><br><span class="line">    console.log(&#x27;promise1&#x27;)</span><br><span class="line">    resolve();</span><br><span class="line">&#125;).then(function () &#123;</span><br><span class="line">    console.log(&#x27;promise2&#x27;)</span><br><span class="line">&#125;);</span><br><span class="line">console.log(&#x27;script end&#x27;)</span><br><span class="line"></span><br><span class="line">//script start</span><br><span class="line">//async1 start</span><br><span class="line">//async2 </span><br><span class="line">//promise1 </span><br><span class="line">//script end</span><br><span class="line">//async1 end</span><br><span class="line">//promise2</span><br><span class="line">//setTimeout</span><br></pre></td></tr></table></figure>
+
+<h1 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 初始化 Promise</span><br><span class="line">new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">// ⼀个异步回调</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">// 异步回调中调⽤ resolve 和 reject</span><br><span class="line">resolve(&quot;成功&quot;);</span><br><span class="line">// 失败</span><br><span class="line">reject(&quot;失败&quot;);</span><br><span class="line">&#125;, 1000);</span><br><span class="line">&#125;);</span><br><span class="line">// 封装⼀个 返回 Promise 的函数</span><br><span class="line">function wait(n) &#123;</span><br><span class="line">// 必须 return promise</span><br><span class="line">return new Promise((res) =&gt; &#123;</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">res();</span><br><span class="line">&#125;, n);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">// Promise 可以链式调⽤，如果.then 返回 Promise，则下⼀个 .then 是 Promise 的</span><br><span class="line">resolve，如果.then 返回值，则下⼀个 .then 参数是该值</span><br><span class="line">wait(1000)</span><br><span class="line">.then(() =&gt; wait(2000))</span><br><span class="line">.then(() =&gt; wait(1000));</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="promise推导"><a href="#promise推导" class="headerlink" title="promise推导"></a>promise推导</h3><p><em><strong>1.闭包    2.异步闭包    3.异步回调    4.回调地狱    5.promise   6.链式调用</strong></em></p>
+<p>1.等号右边的是值，等号左边的是引用         引用：存储一个值的地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123; value: 1 &#125;;</span><br><span class="line">let value = a.value;</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">      console.log(value);</span><br><span class="line">      a.value = 2;</span><br><span class="line">&#125;, 1000);</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">       console.log(value); // 1</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2.函数闭包，专门为了异步存在</p>
+<p>函数可以访问，外部特定时刻的<strong>引用</strong> —— 时间线</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">值的引用：改变了栈里面的值，引用的是同一个值，值改变其他引用也会变</span><br><span class="line">第一种情况：  let a = 1;</span><br><span class="line">       setTimeout(() =&gt; &#123;</span><br><span class="line">          console.log(a);  //1</span><br><span class="line">          a = 2;</span><br><span class="line">        &#125;, 1000);</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">          console.log(a);   //1</span><br><span class="line">        &#125;, 500);</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">第二种情况：  let a = 1;</span><br><span class="line">       setTimeout(() =&gt; &#123;</span><br><span class="line">          console.log(a);  //1</span><br><span class="line">          a = 2;</span><br><span class="line">        &#125;, 1000);</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">          console.log(a);   //2</span><br><span class="line">        &#125;, 1000);</span><br><span class="line">记住了特定时刻的a值</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">对象的引用：对象里面的属性值改变，不会影响其他的引用</span><br><span class="line">这里的value2和a存储在不同的空间中，互不影响</span><br><span class="line">        const a = &#123; value: 1 &#125;;</span><br><span class="line">        const value2 = a.value; // a.value 是右值</span><br><span class="line">        // const &#123;value2&#125; = a // 解构赋值</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">          console.log(value2);   //1</span><br><span class="line">          a.value = 2;</span><br><span class="line">        &#125;, 1000);</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">          console.log(value2);    //1</span><br><span class="line">        &#125;, 2000);</span><br></pre></td></tr></table></figure>
+
+<p>3.函数当作参数传递（回调），在异步结果中调用（异步回调）</p>
+<p>因为函数作用域存在，所以回调在异步中调用时，可以拿到<strong>最新</strong>的引用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let a = 1;</span><br><span class="line">function wait(cb) &#123;</span><br><span class="line">  setTimeout(() =&gt; &#123;</span><br><span class="line">    cb()</span><br><span class="line">  &#125;,1000);</span><br><span class="line">&#125;</span><br><span class="line">function callback() &#123;</span><br><span class="line">  console.log(a);  //2</span><br><span class="line">&#125;</span><br><span class="line">wait(callback);</span><br><span class="line">a = 2;</span><br></pre></td></tr></table></figure>
+
+<p>4.异步回调的回调地狱</p>
+<p>出现的问题：</p>
+<ol>
+<li>取值取引用问题</li>
+<li>常量冲突</li>
+<li>变量遮蔽</li>
+<li>大椎形代码</li>
+</ol>
+<p>待一段时间，干一件事，再等待一段时间，再干一件事</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">嵌套太多，分不清楚引用的是谁了，后面的变量会遮蔽前面的值</span><br><span class="line">const a = &#123; value: 1 &#125;;</span><br><span class="line">        const &#123; value &#125; = a;</span><br><span class="line">        wait(() =&gt; &#123;</span><br><span class="line">          // 常量冲突</span><br><span class="line">          const b = 1;</span><br><span class="line">          console.log(1);</span><br><span class="line">          wait((res) =&gt; &#123;</span><br><span class="line">            console.log(2);</span><br><span class="line">            // 变量遮蔽</span><br><span class="line">            wait((res) =&gt; &#123;</span><br><span class="line">              console.log(res);</span><br><span class="line">              console.log(3);</span><br><span class="line">              b = 2;</span><br><span class="line">            &#125;);</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>5.promise  用来解决回调地狱的  （ 让异步任务进行同步处理）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function wait(n) &#123;</span><br><span class="line">  return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      resolve(`等待$&#123;n&#125;毫秒`); // .then 的回调，在这里跑</span><br><span class="line">    &#125;, n);</span><br><span class="line">    // 然后   一段时间以后</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">wait(1000).then((res) =&gt; &#123;</span><br><span class="line">  console.log(res);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>6.promise 链式调用     就是（promise.then()）</p>
+<p>等待一段时间，干一件事，再等待一段时间，再干一件事 …</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function wait(n) &#123;</span><br><span class="line">  return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      resolve(`等待$&#123;n&#125;毫秒`); // .then 的回调，在这里跑</span><br><span class="line">    &#125;, n);</span><br><span class="line">    // 然后 / 一段时间以后</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">wait(1000)</span><br><span class="line">  .then((res) =&gt; &#123;</span><br><span class="line">    console.log(res);</span><br><span class="line">    // 当 .then 返回的值是 promise，下一个.then（的参数）是promise的resolve</span><br><span class="line">    return wait(1000);</span><br><span class="line">  &#125;)</span><br><span class="line">  .then((res) =&gt; &#123;</span><br><span class="line">    console.log(res);</span><br><span class="line">    // 当 .then 返回的值，不是 promise 的时候，下一个 .then 就是这个值</span><br><span class="line">    return &quot;立即执行&quot;;</span><br><span class="line">  &#125;)</span><br><span class="line">  .then((res) =&gt; &#123;</span><br><span class="line">    console.log(res);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h3><p>获取⼀个 Promise 列表中，所有 Promise resolve 的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Promise.all([promise1, promise2]).then((res) =&gt; &#123;</span><br><span class="line">const [result1, result2] = res;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race()"></a>Promise.race()</h3><p>获取⼀个 Promise 列表中，第⼀个 resolve 的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function wait(n) &#123;</span><br><span class="line">  return new Promise((res) =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      console.log(1);</span><br><span class="line">      res(`等待了$&#123;n&#125;毫秒`);</span><br><span class="line">      console.log(2);</span><br><span class="line">    &#125;, n);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">Promise.race([wait(1000), wait(500), wait(3000)]).then((res) =&gt; &#123;</span><br><span class="line">  console.log(&quot;Promise.race&quot;, res);   //等待了500毫秒</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h3><p>promise的语法糖           ⽤同步的⽅式，写异步代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">async function asyncFunction() &#123;</span><br><span class="line">     const res1 = await wait(1000);</span><br><span class="line">     console.log(res1);</span><br><span class="line">     const res2 = await wait(1000);</span><br><span class="line">     console.log(res2);</span><br><span class="line">     const res3 = await wait(1000);</span><br><span class="line">     console.log(res3);</span><br><span class="line">&#125;</span><br><span class="line">// 等同于</span><br><span class="line">function promiseFuction() &#123;</span><br><span class="line">     wait(1000)</span><br><span class="line">     .then((res1) =&gt; &#123;</span><br><span class="line">           console.log(res1);</span><br><span class="line">           return wait(1000);</span><br><span class="line">     &#125;)</span><br><span class="line">     .then((res2) =&gt; &#123;</span><br><span class="line">           console.log(res2);</span><br><span class="line">           return wait(1000);</span><br><span class="line">     &#125;)</span><br><span class="line">     .then((res3) =&gt; &#123;</span><br><span class="line">           console.log(res3);</span><br><span class="line">   &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="js值和引用"><a href="#js值和引用" class="headerlink" title="js值和引用"></a>js值和引用</h1><p>通过引⽤，可以访问到实时更新数据的最新值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let a = 1;</span><br><span class="line">let b = a;</span><br><span class="line">a = 2</span><br><span class="line">console.log(b) // 1</span><br><span class="line">// 将 a 地址（引⽤）获取到的值，复制⼀份，给到 b</span><br><span class="line">// a 修改后，b 不变</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let a = &#123;value: 1&#125;;</span><br><span class="line">let b = a</span><br><span class="line">a.value = 2</span><br><span class="line">console.log(b.value) // 2</span><br><span class="line">//对象的值本身就是引⽤，a 和 b 引⽤同⼀对象</span><br></pre></td></tr></table></figure>
+
+<h1 id="formData数据格式"><a href="#formData数据格式" class="headerlink" title="formData数据格式"></a>formData数据格式</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// formData 初始化传⼊ form 表单节点</span><br><span class="line">const formData = new FormData(formNode);</span><br><span class="line">// 添加</span><br><span class="line">// formData.append(/*name,file/value*/);</span><br><span class="line">formData.append(&quot;a&quot;, &quot;&quot;);</span><br><span class="line">// 删除</span><br><span class="line">formData.delete(&quot;a&quot;);</span><br><span class="line">// 修改</span><br><span class="line">formData.set(&quot;a&quot;, &quot;new&quot;);</span><br><span class="line">// 获取</span><br><span class="line">formData.get(&quot;a&quot;);</span><br><span class="line"></span><br><span class="line">对比</span><br><span class="line">// 初始化</span><br><span class="line">const obj = &#123;&#125;;</span><br><span class="line">// 添加</span><br><span class="line">obj.a = &quot;&quot;;</span><br><span class="line">// 删除</span><br><span class="line">delete obj.a;</span><br><span class="line">// 修改</span><br><span class="line">obj.a = &quot;new&quot;;</span><br><span class="line">// 获取</span><br><span class="line">obj.a;</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r="龙"
+        data-o="龙"
+        data-a="龙"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#xhr"><span class="toc-number">1.</span> <span class="toc-text">xhr</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fetch"><span class="toc-number">2.</span> <span class="toc-text">fetch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#axios"><span class="toc-number">3.</span> <span class="toc-text">axios</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="toc-number">4.</span> <span class="toc-text">宏任务和微任务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="toc-number">5.</span> <span class="toc-text">事件循环</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#promise"><span class="toc-number">6.</span> <span class="toc-text">promise</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#promise%E6%8E%A8%E5%AF%BC"><span class="toc-number">6.0.1.</span> <span class="toc-text">promise推导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-all"><span class="toc-number">6.0.2.</span> <span class="toc-text">Promise.all()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-race"><span class="toc-number">6.0.3.</span> <span class="toc-text">Promise.race()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#async-await"><span class="toc-number">6.0.4.</span> <span class="toc-text">async&#x2F;await</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js%E5%80%BC%E5%92%8C%E5%BC%95%E7%94%A8"><span class="toc-number">7.</span> <span class="toc-text">js值和引用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#formData%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-number">8.</span> <span class="toc-text">formData数据格式</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

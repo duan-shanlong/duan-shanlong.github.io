@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>原型 - 反抗军</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="前端,"> 
+    <meta name="description" content="原型构造函数存在的问题存在浪费内存的问题
+怎么浪费的：每创建一个对象，都会在堆空间中重新开辟一个空间来存储方法····
+1234567891011 function Star(name, age) ,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="反抗军" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="原型 - 反抗军"/>
+    <meta name="twitter:description" content="原型构造函数存在的问题存在浪费内存的问题
+怎么浪费的：每创建一个对象，都会在堆空间中重新开辟一个空间来存储方法····
+1234567891011 function Star(name, age) ,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="反抗军"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="原型 - 反抗军"/>
+    <meta property="og:description" content="原型构造函数存在的问题存在浪费内存的问题
+怎么浪费的：每创建一个对象，都会在堆空间中重新开辟一个空间来存储方法····
+1234567891011 function Star(name, age) ,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">反抗军</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">原型</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">原型</h1>
+        <div class="stuff">
+            <span>十一月 20, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><h5 id="构造函数存在的问题"><a href="#构造函数存在的问题" class="headerlink" title="构造函数存在的问题"></a>构造函数存在的问题</h5><p>存在浪费内存的问题</p>
+<p>怎么浪费的：每创建一个对象，都会在堆空间中重新开辟一个空间来存储方法····</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> function Star(name, age) &#123;</span><br><span class="line">            this.name = name</span><br><span class="line">            this.age = age</span><br><span class="line">            this.sing = function () &#123;</span><br><span class="line">                console.log(&#x27;唱歌&#x27;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">const kk = new Star(&#x27;坤坤&#x27;, 18)</span><br><span class="line">const jl = new Star(&#x27;杰伦&#x27;, 20)</span><br><span class="line">console.log(kk.sing === jl.sing) // false  表示内存中sing的地址不相等</span><br><span class="line">说明两个对象的方法，分配了不同的内存来存储，浪费了内存</span><br></pre></td></tr></table></figure>
+
+<h5 id="解决内存浪费的问题"><a href="#解决内存浪费的问题" class="headerlink" title="解决内存浪费的问题"></a>解决内存浪费的问题</h5><p>将公共的属性和方法，写在原型对象上，实现共享（因为每个函数上都有一个prototype原型对象）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Star(name, age) &#123;</span><br><span class="line">            this.name = name</span><br><span class="line">            this.age = age</span><br><span class="line">        &#125;</span><br><span class="line">Star.prototype.sing = function () &#123;</span><br><span class="line">            console.log(&#x27;唱歌&#x27;)</span><br><span class="line">        &#125;</span><br><span class="line">const kk = new Star(&#x27;坤坤&#x27;, 18)</span><br><span class="line">const jl = new Star(&#x27;杰伦&#x27;, 20)</span><br><span class="line">console.log(kk.sing === jl.sing)  // true</span><br><span class="line"></span><br><span class="line">放在原型上的方法，两个创建的对象都能访问到，还是访问到的同一个</span><br></pre></td></tr></table></figure>
+
+<h5 id="原理的理解"><a href="#原理的理解" class="headerlink" title="原理的理解"></a>原理的理解</h5><p>js原型：原型是一个对象，叫原型对象</p>
+<ol>
+<li>所有的函数，都有一个prototype属性，属性值是一个普通对象</li>
+<li>这个属性是一个指针，指向原型对象</li>
+<li>原型上默认有一个叫constructor的属性，指向构造函数的本身</li>
+<li>可以在原型对象上添加属性和方法</li>
+<li>所有通过构造函数创建的对象，都共享原型上的属性和方法！</li>
+</ol>
+<h5 id="构造函数和原型方法中this的指向"><a href="#构造函数和原型方法中this的指向" class="headerlink" title="构造函数和原型方法中this的指向"></a>构造函数和原型方法中this的指向</h5><p>   1.构造函数的this指向的是实例对象</p>
+<ol start="2">
+<li>原型方法中的this指向是还是实例对象</li>
+</ol>
+<h5 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h5><p>constructors在原型对象上</p>
+<p>   1.每个原型（对象）上默认都有一个constructor属性，指向构造函数本身</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Star(name, age) &#123;</span><br><span class="line">            this.name = name</span><br><span class="line">            this.age = age</span><br><span class="line">        &#125;</span><br><span class="line">const ll = new Star(&#x27;磊磊&#x27;, 28)</span><br><span class="line">console.log(Star.prototype.constructor === Star) //true</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>所有对象隐式原型指向构造函数的显式原型</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(ll.__proto__ === Star.prototype)    //true</span><br><span class="line">console.log(ll.__proto__.constructor === Star)  //true</span><br></pre></td></tr></table></figure>
+
+<p>一次向原型上添加多个方法的时候，这个时候，原型上的默认属性constructor就会丢失掉。</p>
+<p>需要手动给这个对象添加constructor属性，指回这个构造函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">会覆盖掉原来的原型，需要手动指回创建的构造函数</span><br><span class="line">Star.prototype = &#123;</span><br><span class="line">            constructor:Star, // 指回构造函数</span><br><span class="line">            sing:function()&#123;</span><br><span class="line">                console.log(&#x27;唱歌&#x27;)</span><br><span class="line">            &#125;,</span><br><span class="line">            dance:function()&#123;</span><br><span class="line">                console.log(&#x27;dance&#x27;)</span><br><span class="line">            &#125;,</span><br><span class="line">            rap: function()&#123;</span><br><span class="line">                console.log(&#x27;rap&#x27;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="proto-隐式原型"><a href="#proto-隐式原型" class="headerlink" title="__proto__隐式原型"></a>__proto__隐式原型</h5><ol>
+<li>所有的的对象，都有一个__proto__属性（隐式原型），属性值也是一个对象（指向的是原型对象）</li>
+<li>对象的隐式原型指向构造函数的显示原型</li>
+<li><strong>proto</strong> 表示了实例和原型之间的一个关系，相当于就是一个桥梁，实例通过它访问原型</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> function Animal()&#123;</span><br><span class="line">            this.color = &#x27;orange&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">const cat = new Animal()</span><br><span class="line">console.log(cat)</span><br><span class="line">console.log(cat.__proto__ === Animal.prototype)   //true</span><br><span class="line"></span><br><span class="line">&#x27;实例对象.__proto__ === 构造函数.prototype&#x27; ==&gt; 原型</span><br></pre></td></tr></table></figure>
+
+<h5 id="构造函数—实例—原型之间的关系"><a href="#构造函数—实例—原型之间的关系" class="headerlink" title="构造函数—实例—原型之间的关系"></a>构造函数—实例—原型之间的关系</h5><p>四条线： </p>
+<p>​    // 1. 构造函数.prototype ===&gt;  原型对象</p>
+<p>​    // 2. 原型对象.constructor ===&gt; 构造函数</p>
+<p>​    // 3. 实例对象.<strong>proto</strong>  ===&gt; 原型对象</p>
+<p>​    // 4. 构造函数 new ，创建出 实例对象</p>
+<h1 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h1><ol>
+<li>Person.prototype也是一个对象，它有__proto__属性，属性值也是对象</li>
+<li>Object是构造函数</li>
+<li>构造函数 通过 prototype 访问到它的原型，实例通过 <strong>proto</strong> 访问到它的原型</li>
+<li>正常的原型链终止到Object.prototype,  也就是Object.prototype.<strong>proto</strong> === null</li>
+</ol>
+<p>总结：原型链靠的是 <strong>proto</strong> 链接的</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r="龙"
+        data-o="龙"
+        data-a="龙"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">原型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">构造函数存在的问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%86%85%E5%AD%98%E6%B5%AA%E8%B4%B9%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">解决内存浪费的问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">1.0.0.0.3.</span> <span class="toc-text">原理的理解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B%E6%96%B9%E6%B3%95%E4%B8%ADthis%E7%9A%84%E6%8C%87%E5%90%91"><span class="toc-number">1.0.0.0.4.</span> <span class="toc-text">构造函数和原型方法中this的指向</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#constructor-NaN"><span class="toc-number">1.0.0.0.5.</span> <span class="toc-text">constructor</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#proto-%E9%9A%90%E5%BC%8F%E5%8E%9F%E5%9E%8B"><span class="toc-number">1.0.0.0.6.</span> <span class="toc-text">__proto__隐式原型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E2%80%94%E5%AE%9E%E4%BE%8B%E2%80%94%E5%8E%9F%E5%9E%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.0.0.0.7.</span> <span class="toc-text">构造函数—实例—原型之间的关系</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-number">2.</span> <span class="toc-text">原型链</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

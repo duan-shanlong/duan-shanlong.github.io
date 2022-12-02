@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>动态组件、组件缓存、组件插槽 - 反抗军</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="前端,"> 
+    <meta name="description" content="动态组件 动态组件是  中 is属性，来设置当前需要展示的组件， 当前展示组件在components属性中注册的名称来作为is的属性值。 
+=&amp;gt; 以上效果与为每个组件标签设置v-if v-el,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="反抗军" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="动态组件、组件缓存、组件插槽 - 反抗军"/>
+    <meta name="twitter:description" content="动态组件 动态组件是  中 is属性，来设置当前需要展示的组件， 当前展示组件在components属性中注册的名称来作为is的属性值。 
+=&amp;gt; 以上效果与为每个组件标签设置v-if v-el,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="反抗军"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="动态组件、组件缓存、组件插槽 - 反抗军"/>
+    <meta property="og:description" content="动态组件 动态组件是  中 is属性，来设置当前需要展示的组件， 当前展示组件在components属性中注册的名称来作为is的属性值。 
+=&amp;gt; 以上效果与为每个组件标签设置v-if v-el,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">反抗军</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">动态组件、组件缓存、组件插槽</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">动态组件、组件缓存、组件插槽</h1>
+        <div class="stuff">
+            <span>十二月 01, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/tags/" rel="tag">tags</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="动态组件"><a href="#动态组件" class="headerlink" title="动态组件"></a>动态组件</h3><p> 动态组件是 <component></component> 中 is属性，来设置当前需要展示的组件， 当前展示组件在components属性中注册的名称来作为is的属性值。 </p>
+<p>=&gt; 以上效果与为每个组件标签设置v-if v-else-if v-else指令的表现效果一致</p>
+<p>以上操作，每次切换时，都会删除旧的组件，并且加载新的组件，加载效率上是相对较低的，同时无法保留原来组件中设置的内容 =&gt; 为此，我们尝试将动态组件中的每个组件内容进行缓存操作</p>
+<h3 id="组件缓存："><a href="#组件缓存：" class="headerlink" title="组件缓存："></a>组件缓存：</h3><p>目的：组件切换时会导致组件频繁的销毁和新建，所以很影响加载性能（时间），那么将切走的组件缓存到内存（空间）中下一次切换回来时直接从内存中读取即可</p>
+<p>  在动态组件<component />外设置<keep-alive></keep-alive>标签作为动态组件的父标签，那么，在 <keep-alive> 标签中包裹的组件，就能够进行缓存操作</p>
+<p>  以上缓存操作带来的问题是: 引入组件缓存了，所有在组件创建时，以及组件销毁时需要做的一些操作，无法在缓存组件中进行正常执行。 由此出现了一个新的生命周期阶段 =&gt; 激活阶段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// 点击切换两个不同的组件</span><br><span class="line">&lt;button @click=&quot;componentName = &#x27;UserInfo&#x27;&quot;&gt;用户密码&lt;/button&gt;</span><br><span class="line">&lt;button @click=&quot;componentName = &#x27;UserName&#x27;&quot;&gt;个人简介&lt;/button&gt;</span><br><span class="line">// is中是那个组件，就显示那个组件</span><br><span class="line">&lt;keep-alive&gt;</span><br><span class="line">      &lt;component :is=&quot;componentName&quot;&gt;&lt;/component&gt;</span><br><span class="line">    &lt;/keep-alive&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 引入</span><br><span class="line">import UserInfo from &#x27;../components/userInfo.vue&#x27;</span><br><span class="line">import UserName from &#x27;../components/userName.vue&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;UserDynamic&#x27;,</span><br><span class="line">  // 注册</span><br><span class="line">  components: &#123;</span><br><span class="line">    UserInfo,</span><br><span class="line">    UserName</span><br><span class="line">  &#125;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      componentName: &#x27;UserInfo&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>问题： 如果有一些逻辑需要在组件切换到他时执行，或者有些定时器计时器需要在组件切换掉的时候关闭？？那该怎么做？</p>
+<p>因为切换了，就意味着清除了，在下次打开时，就是重新创建，定时器这些就从头开始，没发正常记录时间，（deactivated - 失活）就可以让定时器暂停，等被切换回来时（activated - 激活），就再次启动</p>
+<p>  结论： 如果这个组件是需要进行缓存的，那么将组件中created、mounted中的代码放到 activated 中，将beforeDestroy的代码放到deactivated中即可</p>
+<h3 id="组件插槽"><a href="#组件插槽" class="headerlink" title="组件插槽"></a>组件插槽</h3><ol>
+<li><h5 id="插槽的基本用法"><a href="#插槽的基本用法" class="headerlink" title="插槽的基本用法"></a>插槽的基本用法</h5><p>  1.1 在子组件的目标位置，设置<slot>, 作为后续父组件插入的目标坐标</p>
+<p>  1.2 在父组件的子组件双标签中，设置需要插入的自定义内容（标签、文本）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">父：</span><br><span class="line">&lt;MyPannel&gt;</span><br><span class="line">	&lt;img src=&quot;../assets/mm.gif&quot; alt=&quot;&quot; /&gt;</span><br><span class="line">    &lt;span&gt;这是父组件插入的文本&lt;/span&gt;</span><br><span class="line">&lt;/MyPannel&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import MyPannel from &#x27;../components/myPannel.vue&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;UserSlot&#x27;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    MyPannel</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">子：</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">  	  &lt;slot&gt;</span><br><span class="line">  	  //插入的标签再这里</span><br><span class="line">      &lt;/slot&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><h5 id="默认插槽"><a href="#默认插槽" class="headerlink" title="默认插槽"></a>默认插槽</h5></li>
+<li><p>1 在子组件中，的<slot>双标签内，设置默认的标签格式， 如果父组件在使用子组件时，不去设置对应的插槽内容时，就展示默认值</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">父：</span><br><span class="line">&lt;MyPannel&gt;</span><br><span class="line">&lt;/MyPannel&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import MyPannel from &#x27;../components/myPannel.vue&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;UserSlot&#x27;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    MyPannel</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">子：</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">  	  &lt;slot&gt;</span><br><span class="line">        &lt;div&gt;这是一个默认值&lt;/div&gt;</span><br><span class="line">      &lt;/slot&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li><h5 id="具名插槽"><a href="#具名插槽" class="headerlink" title="具名插槽"></a>具名插槽</h5><p>当子组件中有多个位置需要使用插槽时，需要用到具名插槽，为每个位置的slot起个名字</p>
+</li>
+<li><ol>
+<li>在子组件中的 <slot> 标签上创建 name 属性</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>在父组件的子组件双标签内，设置模板标签template, 在模板标签中，设置 v-slot:插槽名称 的指令，那么这个模板标签template中包裹的内容就会设置到对应的子组件<slot>插槽位置上<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">父：</span><br><span class="line">&lt;MyPannel&gt;</span><br><span class="line">	 &lt;template v-slot:title&gt;</span><br><span class="line">        &lt;span&gt;猫猫折叠面板&lt;/span&gt;</span><br><span class="line">      &lt;/template&gt;</span><br><span class="line">      </span><br><span class="line">      &lt;template v-slot:content&gt;</span><br><span class="line">        &lt;img src=&quot;../assets/mm.gif&quot; alt=&quot;&quot; /&gt;</span><br><span class="line">        &lt;span&gt;这是父组件插入的文本&lt;/span&gt;</span><br><span class="line">      &lt;/template&gt;</span><br><span class="line">&lt;/MyPannel&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import MyPannel from &#x27;../components/myPannel.vue&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;UserSlot&#x27;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    MyPannel</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">子：</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">  	  &lt;slot name=&quot;title&quot; &gt;</span><br><span class="line">  	  //插入的标签再这里</span><br><span class="line">      &lt;/slot&gt;</span><br><span class="line">      &lt;slot name=&quot;content&quot; &gt;</span><br><span class="line">  	  //插入的标签再这里</span><br><span class="line">      &lt;/slot&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<ol start="4">
+<li><h5 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h5></li>
+</ol>
+<p>  当父组件需要用到一些对应插槽子组件提供的数据时，可以用到作用域插槽来获取数据</p>
+<p>  4.1. 发送数据: 在子组件中，<slot>标签上，设置 自定义属性， 需要传递的数据作为该属性的值</p>
+<p>  4.2. 接收数据: 在父组件的子组件对应插槽中，通过 #插槽名称=”自定义变量” 该变量就包含了所有在slot标签中设置的自定义属性的值，通过点语法的形式来进行使用即可 （一般情况下，这个自定义变量我们用 scope 来表示）</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">父：</span><br><span class="line">&lt;MyPannel&gt;</span><br><span class="line">	&lt;MyPannel&gt;</span><br><span class="line">      &lt;!-- 需要展示张三的名称和年龄，而数据都在子组件中 --&gt;</span><br><span class="line">      &lt;template v-slot:content=&quot;scope&quot;&gt;</span><br><span class="line">        &lt;div&gt;对象: 双大括号 scope.myObj 双大括号&lt;/div&gt;</span><br><span class="line">        &lt;div&gt;名字：双大括号 scope.myObj.name 双大括号&lt;/div&gt;</span><br><span class="line">        &lt;div&gt;年龄：双大括号 scope.myObj.age 双大括号&lt;/div&gt;</span><br><span class="line">        &lt;div&gt;字符串: 双大括号 scope.myStr 双大括号&lt;/div&gt;</span><br><span class="line">        &lt;div&gt;数字: 双大括号 scope.myNum 双大括号&lt;/div&gt;</span><br><span class="line">      &lt;/template&gt;</span><br><span class="line">    &lt;/MyPannel&gt;</span><br><span class="line">&lt;/MyPannel&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import MyPannel from &#x27;../components/myPannel.vue&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;UserSlot&#x27;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    MyPannel</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">子：</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">  	 &lt;slot name=&quot;content&quot; :myObj=&quot;obj&quot; :myStr=&quot;str&quot; :myNum=&quot;num&quot;&gt;</span><br><span class="line">      &lt;/slot&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      isShow: false,</span><br><span class="line">      obj: &#123;</span><br><span class="line">        name: &#x27;zhangsan&#x27;,</span><br><span class="line">        age: 20</span><br><span class="line">      &#125;,</span><br><span class="line">      str: &#x27;helloWorld&#x27;,</span><br><span class="line">      num: 123321</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r="龙"
+        data-o="龙"
+        data-a="龙"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">动态组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%BC%93%E5%AD%98%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">组件缓存：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%8F%92%E6%A7%BD"><span class="toc-number">3.</span> <span class="toc-text">组件插槽</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8F%92%E6%A7%BD%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">3.0.1.</span> <span class="toc-text">插槽的基本用法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E6%8F%92%E6%A7%BD"><span class="toc-number">3.0.2.</span> <span class="toc-text">默认插槽</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B7%E5%90%8D%E6%8F%92%E6%A7%BD"><span class="toc-number">3.0.3.</span> <span class="toc-text">具名插槽</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD"><span class="toc-number">3.0.4.</span> <span class="toc-text">作用域插槽</span></a></li></ol></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

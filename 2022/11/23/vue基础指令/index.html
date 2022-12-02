@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>vue基础指令 - 反抗军</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="前端,"> 
+    <meta name="description" content="插值表达式  123456789101112131415161718192021222324252627282930&amp;#123;&amp;#123; number + 1 &amp;#125;&amp;#125;&amp;#123,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="反抗军" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="vue基础指令 - 反抗军"/>
+    <meta name="twitter:description" content="插值表达式  123456789101112131415161718192021222324252627282930&amp;#123;&amp;#123; number + 1 &amp;#125;&amp;#125;&amp;#123,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="反抗军"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="vue基础指令 - 反抗军"/>
+    <meta property="og:description" content="插值表达式  123456789101112131415161718192021222324252627282930&amp;#123;&amp;#123; number + 1 &amp;#125;&amp;#125;&amp;#123,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">反抗军</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">vue基础指令</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">vue基础指令</h1>
+        <div class="stuff">
+            <span>十一月 23, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/tags/" rel="tag">tags</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="插值表达式"><a href="#插值表达式" class="headerlink" title="插值表达式  "></a>插值表达式  </h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; number + 1 &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; ok ? &#x27;YES&#x27; : &#x27;NO&#x27; &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; message.split(&#x27;&#x27;).reverse().join(&#x27;&#x27;) &#125;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;</span><br><span class="line">      &lt;div&gt;&#123;&#123; obj.name &#125;&#125;&lt;/div&gt;</span><br><span class="line">      &lt;div&gt;&#123;&#123; obj.age &gt;= 18 ? &#x27;成年&#x27; : &#x27;未成年&#x27; &#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  // 需要为每一个组件起上名字 =&gt; 命名要求: 必须以多个单词的驼峰式命名</span><br><span class="line">  name: &#x27;DemoIndex1&#x27;,</span><br><span class="line">  // vue 组件中的数据，必须写在data方法的返回值对象中作为属性</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &#x27;helloWorld&#x27;,</span><br><span class="line">      obj: &#123;</span><br><span class="line">        name: &#x27;张三&#x27;,</span><br><span class="line">        age: 20</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="v-bind-动态的绑定一个或多个属性"><a href="#v-bind-动态的绑定一个或多个属性" class="headerlink" title="v-bind  动态的绑定一个或多个属性"></a>v-bind  动态的绑定一个或多个属性</h3><p>语法： v-bind:属性名=”vue中定义的变量/表达式”</p>
+<p>简写: 将v-bind: 转化为 : =&gt; :属性名=”vue中定义的变量/表达式”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;!-- </span><br><span class="line">      动态属性</span><br><span class="line">      语法： v-bind:属性名=&quot;vue中定义的变量/表达式&quot;</span><br><span class="line">      简化的语法： 将v-bind: 转化为 : =&gt; :属性名=&quot;vue中定义的变量/表达式&quot;</span><br><span class="line">    --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;a v-bind:href=&quot;hrefUrl&quot;&gt;www.baidu.com&lt;/a&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;!-- 关于v-bind动态属性作用于图片时尤其需要注意</span><br><span class="line">      v-bind 会直接讲资源路径认定为字符串</span><br><span class="line">      如何解决呢？ 直接在v-bind动态属性后面传递实际的资源</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;img src=&quot;../assets/123.png&quot; alt=&quot;&quot; /&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;img v-bind:src=&quot;imgUrl1&quot; alt=&quot;&quot; /&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;img :src=&quot;imgUrl2&quot; alt=&quot;&quot; /&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;img :src=&quot;imgUrl3&quot; alt=&quot;&quot; /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 通过import引入资源文件，在data中进行定义，最后再动态属性中使用</span><br><span class="line">import img from &#x27;../assets/123.png&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;DemoIndex2&#x27;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      hrefUrl: &#x27;http://www.baidu.com&#x27;,</span><br><span class="line">      imgUrl1: &#x27;../assets/123.png&#x27;,</span><br><span class="line">      imgUrl2: img,</span><br><span class="line">      // require 引入资源文件， 直接在动态属性中使用</span><br><span class="line">      // 优势： require引入资源的方式是按需的，这样一来，页面初始更新效率会更高</span><br><span class="line">      imgUrl3: require(&#x27;../assets/123.png&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="v-on事件绑定"><a href="#v-on事件绑定" class="headerlink" title="v-on事件绑定"></a>v-on事件绑定</h3><p>vue项目的一个本质理念: 数据驱动视图 （在做任何需求时，首选通过数据来修改）</p>
+<p>在vue的标签中，如果想要访问data中的数据，或者调用methods中的方法，需要在前面加上this</p>
+<h5 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h5><p>简写: v-on: =&gt; @   @事件名=”methods中定义的方法”</p>
+<ol>
+<li>  v-on:事件名=”简单的函数执行体” =&gt; 只有一行代码</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=&quot;count++&quot;&gt;点击加一&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>v-on:事件名=”methods中定义的方法”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=&quot;addCount1&quot;&gt;点击加一&lt;/button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&quot;DemoInfo&quot;,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            count:0,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // vue组件中的方法要写在methods中</span><br><span class="line">    methods:&#123;</span><br><span class="line">        //点击加一</span><br><span class="line">        addCount1()&#123;</span><br><span class="line">            this.count += 1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>v-on:事件名=”methods中定义的方法(实际参数)”</p>
+<p>   总结经验： 如果方法不需要传参，那么不要去写小括号</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=&quot;addCount(5)&quot;&gt;点击加5&lt;/button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&quot;DemoInfo&quot;,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            count:0,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // vue组件中的方法要写在methods中</span><br><span class="line">    methods:&#123;</span><br><span class="line">        //点击加五</span><br><span class="line">        addCount1(num)&#123;</span><br><span class="line">            this.count += num</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="有无参数传递"><a href="#有无参数传递" class="headerlink" title="有无参数传递"></a>有无参数传递</h5><ol>
+<li>无参数状态 =&gt; @click=”goUrl” 在v-on指令后绑定方法时不加小括号的形式</li>
+</ol>
+<p>​           在定义方法时默认的事件对象在第一个形参上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;a @click=&quot;goUrl&quot; href=&quot;http://www.baidu.com&quot;&gt;百度（无参）&lt;/a&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&quot;DemoInfo&quot;,</span><br><span class="line">    // vue组件中的方法要写在methods中</span><br><span class="line">    methods:&#123;</span><br><span class="line">        goUrl(event)&#123;</span><br><span class="line">            //阻止默认事件</span><br><span class="line">            event.preventDefault()</span><br><span class="line">            console.log(event)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>有参数状态(绑定方法时后面有括号的形式) =&gt; @click=”goUrl2()”</li>
+</ol>
+<p>​                        在定义方法时主动传递事件对象 @click=”goUrl2($event)”</p>
+<p>​                        使用时，对应实参位置设置新参即可使用</p>
+<p>​     原因: 只要在使用方法时打上小括号，就会覆盖原本vue默认设置在第一个形参上的事件对象参数 ,所以要手动添加$event</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;a @click=&quot;goUr2(1,$event)&quot; href=&quot;http://www.baidu.com&quot;&gt;百度（有参）&lt;/a&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&quot;DemoInfo&quot;,</span><br><span class="line">    // vue组件中的方法要写在methods中</span><br><span class="line">    methods:&#123;</span><br><span class="line">        goUr2(num,event)&#123;</span><br><span class="line">            event.preventDefault()</span><br><span class="line">            console.log(num,event)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h3><p>语法：@事件名.修饰符=”方法”</p>
+<p>​      @click.prevent=”preventFn” =&gt; 阻止默认事件 =&gt; 最为常用的修饰符</p>
+<p>​      @click.stop=”stopFn” =&gt; 阻止事件冒泡 =&gt; 一般</p>
+<p>​      @click.once=”onceFn” =&gt; 绑定的事件只有一次有效 =&gt; 罕见</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div @click=&quot;fatherFn&quot;&gt;</span><br><span class="line">        &lt;p @click.stop=&quot;stopFn&quot;&gt;阻止事件冒泡&lt;/p&gt;</span><br><span class="line">        //可以多个修饰符一起使用</span><br><span class="line">        &lt;a @click.prevent.stop=&quot;preventFn&quot; href=&quot;http://www.baidu.com&quot;&gt; 阻         止默认事件&lt;/a&gt;</span><br><span class="line">        &lt;!-- 和once一起的修饰符，也只执行一次 --&gt;</span><br><span class="line">        &lt;p @click.once=&quot;onceFn&quot;&gt;只执行一次&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&quot;DemoInfo&quot;,</span><br><span class="line">    // vue组件中的方法要写在methods中</span><br><span class="line">    methods:&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="键盘事件的修饰符"><a href="#键盘事件的修饰符" class="headerlink" title="键盘事件的修饰符"></a>键盘事件的修饰符</h3><p>@keyup.enter =&gt; 监听回车按键，只有按下回车时才会触发绑定的方法</p>
+<p>@keyup.esc =&gt;  监听返回按键，只有按下返回时才会触发绑定的方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 按下enter时才会触发绑定的方法</span><br><span class="line">&lt;input type=&quot;text&quot; @keyup.enter=&quot;keyFn1&quot;&gt;</span><br><span class="line">// 按下esc时才会触发绑定的方法</span><br><span class="line">&lt;input type=&quot;text&quot; @keyup.esc=&quot;keyFn2&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="v-model-双向绑定"><a href="#v-model-双向绑定" class="headerlink" title="v-model 双向绑定"></a>v-model 双向绑定</h3><p>语法: v-model=”vue数据变量”</p>
+<p>v-model 这个指令可以实现表单控件中数据与视图的双向绑定</p>
+<ol>
+<li><p>数据改变 =&gt; 视图自动同步</p>
+<ol start="2">
+<li>视图改变 =&gt; 数据自动同步</li>
+</ol>
+</li>
+</ol>
+<h5 id="1-文本框"><a href="#1-文本框" class="headerlink" title="1.文本框"></a>1.文本框</h5><p>input 文本框 ，将value属性替换成v-model</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; v-model=&quot;inputValue&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-下拉选项框"><a href="#2-下拉选项框" class="headerlink" title="2.下拉选项框"></a>2.下拉选项框</h5><p>下拉选项框 select 将name属性替换成 v-model </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;select v-model=&quot;city&quot;&gt;</span><br><span class="line">        &lt;option value=&quot;北京&quot;&gt;北京&lt;/option&gt;</span><br><span class="line">        &lt;option value=&quot;上海&quot;&gt;上海&lt;/option&gt;</span><br><span class="line">        &lt;option value=&quot;成都&quot;&gt;成都&lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-单选框"><a href="#3-单选框" class="headerlink" title="3.单选框"></a>3.单选框</h5><p>单选框 将name属性 替换成v-model</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;radio&quot; v-model=&quot;sex&quot; value=&quot;男&quot;/&gt; 男</span><br><span class="line">&lt;input type=&quot;radio&quot; v-model=&quot;sex&quot; value=&quot;女&quot;/&gt; 女</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-复选框"><a href="#4-复选框" class="headerlink" title="4.复选框"></a>4.复选框</h5><p>4.1    将name 属性替换成 v-model 中绑定一个数组，选中项就是数组中的每个一元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;checkbox&quot; v-model=&quot;hobby&quot; value=&quot;唱&quot;/&gt; 唱</span><br><span class="line">&lt;input type=&quot;checkbox&quot; v-model=&quot;hobby&quot; value=&quot;跳&quot;/&gt; 跳</span><br><span class="line">&lt;input type=&quot;checkbox&quot; v-model=&quot;hobby&quot; value=&quot;rap&quot;/&gt; rap</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&quot;DemoInfo&quot;,</span><br><span class="line">    data()&#123;</span><br><span class="line">         return &#123;</span><br><span class="line">            hobby:[]</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>4.2   将name 属性替换成 v-model 中绑定一个非数组，当切换选择状态时会以布尔值的形式来做状态切换</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;checkbox&quot; v-model=&quot;hobby&quot; value=&quot;唱&quot;/&gt; 唱</span><br><span class="line">&lt;input type=&quot;checkbox&quot; v-model=&quot;hobby&quot; value=&quot;跳&quot;/&gt; 跳</span><br><span class="line">&lt;input type=&quot;checkbox&quot; v-model=&quot;hobby&quot; value=&quot;rap&quot;/&gt; rap</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&quot;DemoInfo&quot;,</span><br><span class="line">    data()&#123;</span><br><span class="line">         return &#123;</span><br><span class="line">            hobby1:&#x27;&#x27;,</span><br><span class="line">            hobby2:false,</span><br><span class="line">            hobby3:0,</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">// 都会隐式转换成布尔值</span><br></pre></td></tr></table></figure>
+
+<h3 id="v-model-的修饰符"><a href="#v-model-的修饰符" class="headerlink" title="v-model 的修饰符"></a>v-model 的修饰符</h3><ol>
+<li>v-model.number 将输入框中的值以 parseFloat 的形式转化为数字类型 (常用)</li>
+</ol>
+<p>​    会自动清除后续非数字部分  parseFloat(1.22.3)  ===&gt; 1.22</p>
+<p>​    如果第一个字符就不是数字时，.number修饰符就失效了</p>
+<ol start="2">
+<li><p>v-model.trim  去除收尾空格字符 (常用)</p>
+<ol start="3">
+<li>v-model.lazy  将input(输入)时触发的实时更新数据操作转移到change(失焦、回车)时触发</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;转化数字&lt;/span&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; v-model.number=&quot;newNumber&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;span&gt;取消前后空格&lt;/span&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; v-model.trim=&quot;newTrim&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;span&gt;懒更新&lt;/span&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; v-model.lazy=&quot;newLazy&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="v-text与v-html"><a href="#v-text与v-html" class="headerlink" title="v-text与v-html"></a>v-text与v-html</h3><p>v-text =&gt; 代替了webapi中的 innerText</p>
+<p>v-html =&gt; 代替了webapi中的 innerHTML</p>
+<p>观察发现 v-text 使用时不允许当前标签内有任何子元素  </p>
+<p>及<p v-text="text">123</p>  中间不能有123</p>
+<p>原因: 本来当前元素中的内容就会被v-text中的内容覆盖，所以当前标签中的子元素显得毫无意义甚至影响页面的渲染效率</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;p v-text=&quot;text&quot;&gt;&lt;/p&gt;   // &lt;span&gt;这是一个字符串&lt;/span&gt;</span><br><span class="line">&lt;p v-html=&quot;text&quot;&gt;&lt;/p&gt;   // 这是一个字符串</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&#x27;DemoInfo07&#x27;,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            text:&#x27;&lt;span&gt;这是一个字符串&lt;/span&gt;&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h3><p>用来隐藏标签的</p>
+<p>语法：v-show=”变量”</p>
+<p>原理: 给当前标签设置一个display: none; 来进行隐藏操作，原来的这个标签元素还存在于dom数中</p>
+<p>通过变量的boolean值隐式转化，来判断是true或者是false，为true时显示，为false时隐藏</p>
+<p>隐式转化为false的情况: 0 / ‘’ / null / undefined / NaN </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-show=&quot;flag1&quot;&gt;v-show&lt;/div&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;DemoInfo&quot;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      flag1: true, // 显示</span><br><span class="line">      flag1: false,// 隐藏</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h3><p> *** 选择v-show和v-if的直接条件: 如果当前元素及内部子元素全是静态数据，那么使用v-show，除此以外全用v-if***</p>
+<p>语法：v-if=”变量”</p>
+<p>原理: 直接将需要隐藏的元素从dom树中删除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-if=&quot;flag1&quot;&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;DemoInfo&quot;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      flag1: true,</span><br><span class="line">      msg: &quot;动态数据&quot;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还可以和 v-else-if 和 v-else进行连用，它的判断逻辑与 js中 if else 完全相同</p>
+<p>当使用v-if/v-else-if/v-else 时，他们之间必须是连续的兄弟标签,中间不能有其他标签</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div v-if=&quot;flag2 === &#x27;&#x27;&quot;&gt;显示0&lt;/div&gt;</span><br><span class="line">&lt;div v-else-if=&quot;flag2 === 1&quot;&gt;显示1&lt;/div&gt;</span><br><span class="line">&lt;div v-else-if=&quot;flag2 === 2&quot;&gt;显示2&lt;/div&gt;</span><br><span class="line">&lt;div v-else&gt;显示其他&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="v-for-数据循环指令"><a href="#v-for-数据循环指令" class="headerlink" title="v-for 数据循环指令"></a>v-for 数据循环指令</h3><p> 与forEach的使用方式进行联合记忆，它每次循环得到的数据和索引的用法与forEach完全一样</p>
+<ol>
+<li><p>v-for=”(value, index) in 目标数据结构”</p>
+</li>
+<li><p>v-for=”value in 目标数据结构”</p>
+</li>
+</ol>
+<p>在v-for循环体中，必须为每一个循环标签加上一个key属性来表示当前标签的唯一性（不加直接报错）</p>
+<h5 id="1-循环数组"><a href="#1-循环数组" class="headerlink" title="1.循环数组"></a>1.循环数组</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div v-for=&quot;(value,index) in arr&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">    &#123;&#123; value &#125;&#125; ----- &#123;&#123; index &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&#x27;DemoInfo10&#x27;,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            arr:[&quot;a&quot;,&#x27;b&#x27;,&#x27;c&#x27;],</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">//   a-----0</span><br><span class="line">//   b-----1</span><br><span class="line">//   c-----2</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-循环复杂数组-（数组对象）"><a href="#2-循环复杂数组-（数组对象）" class="headerlink" title="2.循环复杂数组  （数组对象）"></a>2.循环复杂数组  （数组对象）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-for=&quot;value in arr1&quot; :key=&quot;value.index&quot;&gt;</span><br><span class="line">    &#123;&#123; value.name &#125;&#125; -----&#123;&#123;value.age&#125;&#125; </span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&#x27;DemoInfo10&#x27;,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            arr1:[</span><br><span class="line">                &#123;name:&#x27;ff&#x27;,age:&#x27;30&#x27;&#125;,</span><br><span class="line">                &#123;name:&#x27;ss&#x27;,age:&#x27;60&#x27;&#125;</span><br><span class="line">            ],</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">//   ff-----30</span><br><span class="line">//   ss-----60</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-循环对象"><a href="#3-循环对象" class="headerlink" title="3.循环对象"></a>3.循环对象</h5><p>参数一：属性值</p>
+<p>参数二：属性名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-for=&quot;(value,key) in obj&quot; :key=&quot;key&quot;&gt;</span><br><span class="line">    &#123;&#123; value &#125;&#125; ----- &#123;&#123; key &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&#x27;DemoInfo10&#x27;,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            obj:&#123;</span><br><span class="line">                name:&quot;mmm&quot;,</span><br><span class="line">                age:&quot;30&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">// mmm------name</span><br><span class="line">// 30 ----- age</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-循环数字"><a href="#4-循环数字" class="headerlink" title="4.循环数字"></a>4.循环数字</h5><p>参数一：从1开始计数到最后的数字</p>
+<p>参数二：下标索引0开始</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-for=&quot;(value,index) in 5&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">    &#123;&#123; value &#125;&#125; ----- &#123;&#123; index &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">// 1 ----- 0</span><br><span class="line">// 2 ----- 1</span><br><span class="line">// 3 ----- 2</span><br><span class="line">// 4 ----- 3</span><br><span class="line">// 5 ----- 4</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-循环字符串"><a href="#5-循环字符串" class="headerlink" title="5.循环字符串"></a>5.循环字符串</h5><p>参数一：字符串的每个字符</p>
+<p>参数二：下标索引0开始</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-for=&quot;(value,index) in &#x27;cvb&#x27;&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">    &#123;&#123; value &#125;&#125; ----- &#123;&#123; index &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">// c ----- 0</span><br><span class="line">// v ----- 1</span><br><span class="line">// b ----- 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="v-for与v-if不能一起使用"><a href="#v-for与v-if不能一起使用" class="headerlink" title="v-for与v-if不能一起使用"></a>v-for与v-if不能一起使用</h3><p>v-for 会比 v-if 有更高的优先级，v-for会先循环出数据，然后v-if判断哪些不符合的数据进行删除。</p>
+<p>一增一删，浪费性能</p>
+<p>解决方案： 直接把v-if中的逻辑判断放到filter的函数执行体中即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">div v-for=&quot;(value,index) in arr3.filter(value =&gt; value &gt;= 3)&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">            &#123;&#123; value &#125;&#125; ----- &#123;&#123; index &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&#x27;DemoInfo10&#x27;,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">        //渲染大于等于3的数据</span><br><span class="line">            arr3:[8,6,5,59,1,3]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r="龙"
+        data-o="龙"
+        data-a="龙"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">插值表达式  </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-%E5%8A%A8%E6%80%81%E7%9A%84%E7%BB%91%E5%AE%9A%E4%B8%80%E4%B8%AA%E6%88%96%E5%A4%9A%E4%B8%AA%E5%B1%9E%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">v-bind  动态的绑定一个或多个属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A"><span class="toc-number">3.</span> <span class="toc-text">v-on事件绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">3.0.1.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E6%97%A0%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="toc-number">3.0.2.</span> <span class="toc-text">有无参数传递</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">4.</span> <span class="toc-text">事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">5.</span> <span class="toc-text">键盘事件的修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-model-%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A"><span class="toc-number">6.</span> <span class="toc-text">v-model 双向绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%96%87%E6%9C%AC%E6%A1%86"><span class="toc-number">6.0.1.</span> <span class="toc-text">1.文本框</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%B8%8B%E6%8B%89%E9%80%89%E9%A1%B9%E6%A1%86"><span class="toc-number">6.0.2.</span> <span class="toc-text">2.下拉选项框</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%8D%95%E9%80%89%E6%A1%86"><span class="toc-number">6.0.3.</span> <span class="toc-text">3.单选框</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%A4%8D%E9%80%89%E6%A1%86"><span class="toc-number">6.0.4.</span> <span class="toc-text">4.复选框</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-model-%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">7.</span> <span class="toc-text">v-model 的修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-text%E4%B8%8Ev-html"><span class="toc-number">8.</span> <span class="toc-text">v-text与v-html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-show"><span class="toc-number">9.</span> <span class="toc-text">v-show</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-if"><span class="toc-number">10.</span> <span class="toc-text">v-if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-for-%E6%95%B0%E6%8D%AE%E5%BE%AA%E7%8E%AF%E6%8C%87%E4%BB%A4"><span class="toc-number">11.</span> <span class="toc-text">v-for 数据循环指令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%BE%AA%E7%8E%AF%E6%95%B0%E7%BB%84"><span class="toc-number">11.0.1.</span> <span class="toc-text">1.循环数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%BE%AA%E7%8E%AF%E5%A4%8D%E6%9D%82%E6%95%B0%E7%BB%84-%EF%BC%88%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%EF%BC%89"><span class="toc-number">11.0.2.</span> <span class="toc-text">2.循环复杂数组  （数组对象）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%BE%AA%E7%8E%AF%E5%AF%B9%E8%B1%A1"><span class="toc-number">11.0.3.</span> <span class="toc-text">3.循环对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%BE%AA%E7%8E%AF%E6%95%B0%E5%AD%97"><span class="toc-number">11.0.4.</span> <span class="toc-text">4.循环数字</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%BE%AA%E7%8E%AF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">11.0.5.</span> <span class="toc-text">5.循环字符串</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-for%E4%B8%8Ev-if%E4%B8%8D%E8%83%BD%E4%B8%80%E8%B5%B7%E4%BD%BF%E7%94%A8"><span class="toc-number">12.</span> <span class="toc-text">v-for与v-if不能一起使用</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

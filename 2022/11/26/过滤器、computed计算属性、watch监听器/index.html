@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>过滤器、computed计算属性、watch监听器 - 反抗军</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="前端,"> 
+    <meta name="description" content="过滤器filter语法：
+​    全局定义过滤器
+​     在 main.js 中，通过 Vue.filter 静态方法
+​     Vue.filter(‘自定义过滤器名称 - 驼峰式命名’,,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="反抗军" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="过滤器、computed计算属性、watch监听器 - 反抗军"/>
+    <meta name="twitter:description" content="过滤器filter语法：
+​    全局定义过滤器
+​     在 main.js 中，通过 Vue.filter 静态方法
+​     Vue.filter(‘自定义过滤器名称 - 驼峰式命名’,,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="反抗军"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="过滤器、computed计算属性、watch监听器 - 反抗军"/>
+    <meta property="og:description" content="过滤器filter语法：
+​    全局定义过滤器
+​     在 main.js 中，通过 Vue.filter 静态方法
+​     Vue.filter(‘自定义过滤器名称 - 驼峰式命名’,,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">反抗军</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">过滤器、computed计算属性、watch监听器</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">过滤器、computed计算属性、watch监听器</h1>
+        <div class="stuff">
+            <span>十一月 26, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h3 id="过滤器filter"><a href="#过滤器filter" class="headerlink" title="过滤器filter"></a>过滤器filter</h3><p>语法：</p>
+<p>​    全局定义过滤器</p>
+<p>​     在 main.js 中，通过 Vue.filter 静态方法</p>
+<p>​     Vue.filter(‘自定义过滤器名称 - 驼峰式命名’, (需要过滤的值 - 必填且默认, 使用过滤器时传递进来的参数) =&gt; {</p>
+<p>​      …函数执行体</p>
+<p>​      return 返回处理后的值</p>
+<p>​     })</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">main.js</span><br><span class="line">// 创建将所有字母大写的过滤器</span><br><span class="line">Vue.filter(&#x27;toUp&#x27;, (value) =&gt; &#123;</span><br><span class="line">  // value：需要进行过滤的默认值</span><br><span class="line">  return value.toUpperCase()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">.vue</span><br><span class="line">&lt;div&gt;全局过滤器：&#123;&#123; str | toUp &#125;&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>局部定义过滤器 - 在哪个组件中定义，只能在哪个组件中使用</p>
+<p>filters: {</p>
+<p>​      ‘自定义过滤器名称 - 驼峰式命名’ (需要过滤的值 - 必填且默认, 使用过滤器时传递进来的参数) {</p>
+<p>​       …函数执行体</p>
+<p>​       return 返回处理后的值</p>
+<p>​      }</p>
+<p>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用： 在插值表达式中通过 &#123;&#123; 原始数据 | 过滤器名称 &#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">     &lt;div&gt;原始数据： &#123;&#123; str &#125;&#125; &lt;/div&gt;</span><br><span class="line">     &lt;div&gt;全局过滤器：&#123;&#123; str | toUp &#125;&#125;&lt;/div&gt;</span><br><span class="line">     &lt;div&gt;局部过滤器: &#123;&#123; str | reverseStr(&#x27;*&#x27;) &#125;&#125; &lt;/div&gt;</span><br><span class="line">     &lt;div&gt;局部过滤器: &#123;&#123; str | reverseStr(&#x27;~&#x27;) &#125;&#125;&lt;/div&gt;</span><br><span class="line">     &lt;div&gt;叠加过滤器使用： &#123;&#123; str | reverseStr(&#x27;*&#x27;) | toUp &#125;&#125;&lt;/div&gt;</span><br><span class="line">     &lt;div&gt;简易大写操作： &#123;&#123; str.toUpperCase() &#125;&#125;&lt;/div&gt;</span><br><span class="line">     &lt;div&gt;简易字符串反转： &#123;&#123; str.split(&#x27;&#x27;).reverse().join(&#x27;&#x27;) &#125;&#125;&lt;/div&gt;</span><br><span class="line">     &lt;div&gt;简易混合叠加写法： &#123;&#123;str.split(&#x27;&#x27;).reverse().join(&#x27;&#x27;).toUpperCase() &#125;&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;DemoIndex05&#x27;,</span><br><span class="line">  // 反转字符串过滤器</span><br><span class="line">  filters: &#123;</span><br><span class="line">    reverseStr (value, s) &#123;</span><br><span class="line">      return value.split(&#x27;&#x27;).reverse().join(s)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      str: &#x27;helloworld&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="计算属性-computed"><a href="#计算属性-computed" class="headerlink" title="计算属性   computed"></a>计算属性   computed</h3><p>特点：当这个计算属性所关联的变量发生变化时，会自动的重新进行计算</p>
+<p>使用场景: 当我们需要某个值，而这个值是由其他一个或多个变量通过某些逻辑处理后计算而来的时候就可以使用计算属性</p>
+<p>计算属性的缓存机制：</p>
+<p>​        当计算属性的对应函数执行时，会把return中的数据缓存起来，如果这个计算属性中的依赖变量没有法师改变时，当计算属性被页面多次使用并不会重新计算，而是从缓存中获取当前的计算结果。只有依赖项发生变化时，才会重新进行计算并将新的计算结果储存到缓存中</p>
+<p>因为要消耗内存，所以也是计算属性的缺点</p>
+<p>计算属性优势：</p>
+<p>​     (1). 带缓存 </p>
+<p>​     (2). 依赖项不变, 直接从缓存取</p>
+<p>​     (3). 依赖项改变, 函数自动执行并重新缓存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">语法:</span><br><span class="line">      在 export default 中有一个属性 computed</span><br><span class="line">      computed: &#123;</span><br><span class="line">        &#x27;自定义计算属性名&#x27; () &#123;</span><br><span class="line">          ...函数执行体 (其中涉及了相关的其他变量)</span><br><span class="line">          return 处理之后的值</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">完整版写法：</span><br><span class="line">语法：</span><br><span class="line">      computed: &#123;</span><br><span class="line">        &#x27;自定义计算属性名称&#x27;: &#123;</span><br><span class="line">           通过依赖项，获取计算属性数据的方法</span><br><span class="line">          get () &#123;</span><br><span class="line">            ** get方法里的代码就是基本计算属性写法中的内容</span><br><span class="line">            ...函数执行体 (其中涉及了相关的其他变量)</span><br><span class="line">            return 处理之后的值</span><br><span class="line">          &#125;,</span><br><span class="line">          </span><br><span class="line">           由计算属性，主动修改依赖项的方法</span><br><span class="line">          set (value) &#123;</span><br><span class="line">             value 是计算属性set方法的默认参数  指的是当前计算属性的值</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div&gt;</span><br><span class="line">      &lt;span&gt;全选:&lt;/span&gt;</span><br><span class="line">      &lt;input type=&quot;checkbox&quot; v-model=&quot;isAll1&quot; /&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &lt;li v-for=&quot;(item, index) in list&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">          &lt;input type=&quot;checkbox&quot; v-model=&quot;item.checked&quot; /&gt;</span><br><span class="line">          &lt;span&gt;&#123;&#123; item.name &#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      list: [</span><br><span class="line">        &#123;name: &quot;猪八戒&quot;,checked: false,&#125;,</span><br><span class="line">        &#123;name: &quot;孙悟空&quot;,checked: false,&#125;,</span><br><span class="line">        &#123;name: &quot;唐僧&quot;,checked: false,&#125;,</span><br><span class="line">        &#123;name: &quot;白龙马&quot;,checked: false,&#125;,</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">    isAll1: &#123;</span><br><span class="line">      get() &#123;</span><br><span class="line">        // 判断当前循环的元素是否选中状态为true</span><br><span class="line">        return this.list.every(obj =&gt; obj.checked === true);</span><br><span class="line">      &#125;,</span><br><span class="line">      set(value) &#123;</span><br><span class="line">        //所有小选框变成value</span><br><span class="line">        this.list.forEach((obj) =&gt; (obj.checked = value));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="watch-监听器"><a href="#watch-监听器" class="headerlink" title="watch 监听器"></a>watch 监听器</h3><p>可以侦听data/computed属性值改变</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">      在 export defualt 中有一个 watch 属性</span><br><span class="line">      watch: &#123;</span><br><span class="line">        &#x27;被监听的变量/计算属性&#x27; (newValue, oldValue) &#123;</span><br><span class="line">          newValue: 数据更新后的值</span><br><span class="line">          oldValue: 数据更新前的值</span><br><span class="line">          以上两个值，特指的栈内存中的值</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<p>监听器的完整写法 - 深度监听</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">       &#x27;被监听的变量/计算属性&#x27;: &#123;</span><br><span class="line">         就是基本写法中的处理函数执行体</span><br><span class="line">         handler (newValue, oldValue) &#123;</span><br><span class="line">           newValue: 数据更新后的值</span><br><span class="line">           oldValue: 数据更新前的值</span><br><span class="line">           以上两个值，特指的栈内存中的值</span><br><span class="line">         &#125;,</span><br><span class="line">         deep: true, // 深度监听复杂数据类型的变化</span><br><span class="line">         immediate: true // 在组件渲染到页面上时，立即执行一次handler中的方法</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; v-model=&quot;str&quot; /&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; v-model=&quot;obj.name&quot; /&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&quot;DemoInfo&quot;,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            str: &quot;123&quot;,</span><br><span class="line">            obj:&#123;</span><br><span class="line">                name:&quot;kk&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch:&#123;</span><br><span class="line">    // 基本数据类型 </span><br><span class="line">        &#x27;str&#x27; (newValue,oldValue)&#123;</span><br><span class="line">            console.log(&#x27;newValue:&#x27;,newValue)</span><br><span class="line">            console.log(&#x27;newValue:&#x27;,oldValue)</span><br><span class="line">            console.log(&#x27;当前变量&#x27;,this.str)</span><br><span class="line">        &#125;,</span><br><span class="line">        // 监听的是整个对象  ×</span><br><span class="line">        &#x27;obj&#x27; : &#123;</span><br><span class="line">            handler (newValue,oldValue)&#123;</span><br><span class="line">                //结果完全一致</span><br><span class="line">            console.log(&#x27;newValue:&#x27;,newValue.name) // kk3</span><br><span class="line">            console.log(&#x27;oldValue:&#x27;,oldValue.name) // kk3</span><br><span class="line">            console.log(&#x27;当前变量&#x27;,this.obj)        //  kk3</span><br><span class="line">        &#125;,</span><br><span class="line">        deep: true</span><br><span class="line">        &#125;,</span><br><span class="line">        //监听对象里面的具体数据  √</span><br><span class="line">        &#x27;obj.name&#x27; : &#123;</span><br><span class="line">            handler (newValue,oldValue)&#123;</span><br><span class="line">            console.log(&#x27;newValue:&#x27;,newValue) //kk3</span><br><span class="line">            console.log(&#x27;oldValue:&#x27;,oldValue) //kk</span><br><span class="line">            console.log(&#x27;当前变量&#x27;,this.obj)   //kk3</span><br><span class="line">        &#125;,</span><br><span class="line">        deep: true</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r="龙"
+        data-o="龙"
+        data-a="龙"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8filter"><span class="toc-number">1.</span> <span class="toc-text">过滤器filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-computed"><span class="toc-number">2.</span> <span class="toc-text">计算属性   computed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#watch-%E7%9B%91%E5%90%AC%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">watch 监听器</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

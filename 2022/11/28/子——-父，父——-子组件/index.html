@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>子——&gt;父，父——&gt;子组件 - 反抗军</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="前端,"> 
+    <meta name="description" content="CSS中的scoped作用作用: 解决多个组件样式名相同, 冲突问题
+解决了组件内部的css样式影响外部文件的问题,style上加scoped, 组件内的样式只在当前vue组件生效
+在style上加,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="反抗军" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="子——&gt;父，父——&gt;子组件 - 反抗军"/>
+    <meta name="twitter:description" content="CSS中的scoped作用作用: 解决多个组件样式名相同, 冲突问题
+解决了组件内部的css样式影响外部文件的问题,style上加scoped, 组件内的样式只在当前vue组件生效
+在style上加,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="反抗军"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="子——&gt;父，父——&gt;子组件 - 反抗军"/>
+    <meta property="og:description" content="CSS中的scoped作用作用: 解决多个组件样式名相同, 冲突问题
+解决了组件内部的css样式影响外部文件的问题,style上加scoped, 组件内的样式只在当前vue组件生效
+在style上加,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">反抗军</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">子——>父，父——>子组件</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">子——>父，父——>子组件</h1>
+        <div class="stuff">
+            <span>十一月 28, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h3 id="CSS中的scoped作用"><a href="#CSS中的scoped作用" class="headerlink" title="CSS中的scoped作用"></a>CSS中的scoped作用</h3><p>作用: 解决多个组件样式名相同, 冲突问题</p>
+<p><strong>解决了组件内部的css样式影响外部文件的问题,style上加scoped, 组件内的样式只在当前vue组件生效</strong></p>
+<p>在style上加入scoped属性, 就会在此组件的标签上加上一个随机生成的data-v-hash开头的属性。保证了必须是当前组件的元素, 才会有这个自定义属性, 才会被这个样式作用到</p>
+<h3 id="为什么要用组件"><a href="#为什么要用组件" class="headerlink" title="为什么要用组件"></a>为什么要用组件</h3><ol>
+<li><p>复用组件，页面上有很多相同功能的内容，可以将其封装成一个个组件来加以复用</p>
+</li>
+<li><p>减少单个文件中的代码量，以便后续更具不同的功能在不同的文件中进行修改处理，极大的增加了代码的可读性</p>
+</li>
+</ol>
+<p><strong>组件化</strong> ：封装的思想，把页面上 <code>可重用的部分</code> 封装为 <code>组件</code>，从而方便项目的 开发 和 维护</p>
+<h3 id="父组件传递参数给子组件"><a href="#父组件传递参数给子组件" class="headerlink" title="父组件传递参数给子组件"></a>父组件传递参数给子组件</h3><ol>
+<li><p>在父组件的子组件标签中，设置自定义属性，将需要传递的参数作为该属性的属性值</p>
+</li>
+<li><p>在子组件中，通过 props 属性进行接收( 注意事项: 接收的参数名称需要与父组件中的子组件标签中的属性名保存一致 )</p>
+</li>
+</ol>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> 父组件区域： </span><br><span class="line"></span><br><span class="line"> &lt;child 自定义属性=&quot;需要传递的参数&quot;&gt;&lt;/child&gt;</span><br><span class="line"></span><br><span class="line">子组件区域：</span><br><span class="line"></span><br><span class="line"> props: [ &#x27;自定义属性&#x27; ]</span><br></pre></td></tr></table></figure>
+
+<h3 id="子组件传递参数给父组件"><a href="#子组件传递参数给父组件" class="headerlink" title="子组件传递参数给父组件"></a>子组件传递参数给父组件</h3><ol>
+<li><p>在子组件中，通过 $emit(‘自定义事件名’, 需要传递的参数)</p>
+</li>
+<li><p>在父组件的子组件标签中, 设置自定义事件，并且为该事件绑定一个方法，在方法中可以获取到传递过来的参数</p>
+</li>
+</ol>
+<p> （注意事项： 子组件中的自定义事件名 需要与 父组件中的子组件标签中的事件名保持一致 ）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">父组件区域： </span><br><span class="line"></span><br><span class="line"> &lt;child @自定义事件名=&quot;绑定的方法&quot;&gt;&lt;/child&gt;</span><br><span class="line"></span><br><span class="line"> 绑定的方法 (子组件传递过来的参数) &#123;&#125;</span><br><span class="line"></span><br><span class="line"> 子组件区域：</span><br><span class="line"></span><br><span class="line"> function () &#123;</span><br><span class="line"></span><br><span class="line">  this.$emit(&#x27;自定义事件名&#x27;, 需要传递的参数)</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="关于props的接收参数定义"><a href="#关于props的接收参数定义" class="headerlink" title="关于props的接收参数定义"></a>关于props的接收参数定义</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  自定义属性名称: &#123;</span><br><span class="line">    type: 当前数据的数据类型,</span><br><span class="line">    default: 默认值</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  str: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    default: &#x27;&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  num: &#123;</span><br><span class="line">    type: Number,</span><br><span class="line">    default: 0</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  bool: &#123;</span><br><span class="line">    type: Boolean,</span><br><span class="line">    default: true</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  arr: &#123;</span><br><span class="line">    type: Array,</span><br><span class="line">    default: () =&gt; []</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  obj: &#123;</span><br><span class="line">    type: Object,</span><br><span class="line">    default: () =&gt; (&#123;&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r="龙"
+        data-o="龙"
+        data-a="龙"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS%E4%B8%AD%E7%9A%84scoped%E4%BD%9C%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">CSS中的scoped作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E7%BB%84%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">为什么要用组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%B6%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0%E7%BB%99%E5%AD%90%E7%BB%84%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">父组件传递参数给子组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0%E7%BB%99%E7%88%B6%E7%BB%84%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">子组件传递参数给父组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8Eprops%E7%9A%84%E6%8E%A5%E6%94%B6%E5%8F%82%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="toc-number">5.</span> <span class="toc-text">关于props的接收参数定义</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

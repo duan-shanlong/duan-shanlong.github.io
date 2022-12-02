@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Node.js 三大模块 - 反抗军</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="前端,"> 
+    <meta name="description" content="Node.js是什么？
+Node.js is an open-source, cross-platform JavaScript runtime environment.
+
+
+定义  Node.js,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="反抗军" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Node.js 三大模块 - 反抗军"/>
+    <meta name="twitter:description" content="Node.js是什么？
+Node.js is an open-source, cross-platform JavaScript runtime environment.
+
+
+定义  Node.js,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="反抗军"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Node.js 三大模块 - 反抗军"/>
+    <meta property="og:description" content="Node.js是什么？
+Node.js is an open-source, cross-platform JavaScript runtime environment.
+
+
+定义  Node.js,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">反抗军</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Node.js 三大模块</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Node.js 三大模块</h1>
+        <div class="stuff">
+            <span>十一月 19, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/tags/" rel="tag">tags</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="Node-js是什么？"><a href="#Node-js是什么？" class="headerlink" title="Node.js是什么？"></a>Node.js是什么？</h2><blockquote>
+<p>Node.js is an open-source, cross-platform JavaScript runtime environment.</p>
+</blockquote>
+<ul>
+<li>定义  <strong>Node.js®是一个开源、跨平台的JavaScript运行时环境。</strong>  ⇒ Node.js 是一个基于 <code>Chrome V8 引擎</code>的<strong>JavaScript运行时环境</strong>。</li>
+</ul>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c8fcd203-ea3c-4675-bb84-47247c44c0ef/Untitled.png" alt="Untitled"></p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d3263f51-7829-4182-a2ef-e760260504f4/Untitled.png" alt="Untitled"></p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/39a1178e-3d5e-42d1-bd8f-17d183943feb/Untitled.png" alt="Untitled"></p>
+<ul>
+<li><strong>Node.js 能做什么？</strong><ol>
+<li>后端Web服务器开发/写接口</li>
+<li>写爬虫</li>
+<li>写应用程序</li>
+<li>脚手架命令行工具</li>
+</ol>
+</li>
+</ul>
+<h3 id="Node-js-发展历史"><a href="#Node-js-发展历史" class="headerlink" title="Node.js 发展历史"></a>Node.js 发展历史</h3><p>2008年 V8 引擎 随着 Chrome浏览器问世</p>
+<p><code>Node.js发布于2009年5月</code>，由Ryan Dahl开发，是一个基于Chrome V8引擎的JavaScript运行环境，使用了一个事件驱动、非阻塞式I/O模型，  让JavaScript 运行在服务端的开发平台，它让JavaScript成为与PHP、Python、Perl、Ruby等服务端语言平起平坐的脚本语言。</p>
+<p><strong>如果只有ECMAScript？</strong> </p>
+<ol>
+<li>不能操作DOM， 不能监听click事件，不能发送ajax请求（浏览器提供的）</li>
+<li>不能处理HTTP请求，不能操作文件</li>
+</ol>
+<h2 id="Node-js能干啥？"><a href="#Node-js能干啥？" class="headerlink" title="Node.js能干啥？"></a><strong><strong>Node.js能干啥？</strong></strong></h2><p><code>Node.js</code> 作为一个 <code>JavaScript</code> 的运行环境，仅仅提供了基础的功能和 <code>API</code>。然而，基于 <code>Node.js</code> 提供的这些基础功能，很多强大 的工具和框架如雨后春笋，层出不穷，所以学会了 <code>Node.js</code> ，可以让<strong>前端程序员胜任更多的工作和岗位</strong>！</p>
+<ul>
+<li>基于 <strong>Express/Koa</strong> 框架(<a target="_blank" rel="noopener" href="http://www.expressjs.com.cn/">http://www.expressjs.com.cn/</a>)，可以快速构建 Web 应用–&gt;<code>java</code></li>
+<li>基于 <strong>Electron</strong> 框架(<a target="_blank" rel="noopener" href="https://electronjs.org/">https://electronjs.org/</a>)，可以构建<strong>跨平台</strong>的桌面应用–&gt;<code>安装,才可以使用的,开发一次,多平台运行</code></li>
+<li>基于 <strong>Crawler</strong> 框架(<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/crawler">https://www.npmjs.com/package/crawler</a>)，可以快速开发<strong>爬虫应用</strong>-&gt;<code>很</code></li>
+<li>读写和操作<strong>数据库</strong>、创建实用的命令行工具<strong>辅助前端开发</strong>（后续框架中会一直使用的）</li>
+<li><code>etc</code>…</li>
+</ul>
+<p>总之，<code>Node.js</code> 是大前端时代的“大宝剑”，有了 <code>Node.js</code> 这个超级 <code>buff</code> 的加持，前端程序员的行业竞争力会越来越强！</p>
+<h3 id="Node-js下载安装"><a href="#Node-js下载安装" class="headerlink" title="Node.js下载安装"></a>Node.js下载安装</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node官网</a>  ⇒ 推荐 LTS  （Long  Term Support）</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Node.js</a></p>
+<blockquote>
+<p>01 首页</p>
+</blockquote>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8c001f9d-9d22-410a-aa53-f90fe3439465/Untitled.png" alt="Untitled"></p>
+<blockquote>
+<p>02 下载</p>
+</blockquote>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4be22045-2c91-4a9d-89b8-b87f9d5e79b6/Untitled.png" alt="Untitled"></p>
+<blockquote>
+<p><strong>安装</strong></p>
+</blockquote>
+<ul>
+<li>安装就一直下一步就行了哈， 不要在中文文件夹目录下安装，默认选项不用修改，一直next</li>
+</ul>
+<ol>
+<li>安装的过程全程<code>下一步</code><ol>
+<li>不要改任何设置</li>
+</ol>
+</li>
+<li><strong>注意！！！！！：</strong><ol>
+<li>如非必要不要更改安装路径</li>
+</ol>
+</li>
+</ol>
+<p><strong>查看是否安装好</strong></p>
+<blockquote>
+<p>windows ⇒ 按 <code>win + R</code> ,  输入<code>cmd</code> ，打开终端 terminal 窗口, 执行下列命令</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">node -v </span><br><span class="line"><span class="comment"># 或者 </span></span><br><span class="line">node --version</span><br><span class="line"><span class="comment"># 显示版本号，就说明安装好了</span></span><br><span class="line"></span><br><span class="line">如果看不到：</span><br><span class="line">关闭所有打开的终端，重新打开</span><br></pre></td></tr></table></figure>
+
+<h3 id="常见的终端窗口"><a href="#常见的终端窗口" class="headerlink" title="常见的终端窗口"></a>常见的终端窗口</h3><ul>
+<li><strong>Windows</strong><ul>
+<li>自带 <strong>cmd</strong> （在文件夹路径位置，输入cmd，回车）</li>
+<li>自带 <strong>powershell</strong> （在文件夹路径位置，输入powershell ，回车）</li>
+<li>商店下载 Windows Terminal</li>
+<li>安装git之后，点 git bash here</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="如何使用Node-js-运行-Javascript-代码"><a href="#如何使用Node-js-运行-Javascript-代码" class="headerlink" title="如何使用Node.js 运行 Javascript 代码"></a>如何使用Node.js 运行 Javascript 代码</h3><p>新建一个文件 报错 touch “文件名”</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2375e5a2-5f41-46d2-b07c-badf0cf30b9e/Untitled.png" alt="Untitled"></p>
+<p>windows不支持touch命令 </p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install touch-cli -g  全局安装后可以使用</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法一，终端里写代码</strong> （了解）</p>
+<blockquote>
+<p>cmd中输入node</p>
+</blockquote>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3fab5db3-2d44-42d2-aa24-8e95e3cd3e9d/Untitled.png" alt="Untitled"></p>
+<ol>
+<li>打开终端窗口:</li>
+<li>输入<code>node</code>回车</li>
+<li>输入语法正确的<code>JS</code>代码,比如： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#x27;感觉自己萌萌哒!&#x27;)</span><br></pre></td></tr></table></figure>
+</li>
+<li>点击回车</li>
+<li><code>ctrl+c</code>退出窗口</li>
+<li><strong>思考：</strong><ol>
+<li>如果代码很复杂用这种方式你是否快乐？</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;wakaka&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 退出</span></span><br><span class="line"><span class="comment">// 按住Ctrl + 按两次C</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方法二，使用node执行js文件（掌握）</strong></p>
+<ol>
+<li><strong>编写语法正确的<code>.js</code>文件</strong><ol>
+<li>除了<code>Bom</code>和<code>Dom</code>，基本都可以写</li>
+<li><code>console.log</code>,<code>setTimeout</code>这些也提供了</li>
+<li><strong>注意！！！！：</strong>是<code>.js</code>文件</li>
+</ol>
+</li>
+<li>在<code>.js</code>文件所在文件夹打开任意终端<ol>
+<li><code>vscode 自带终端</code></li>
+<li><code>cmd</code></li>
+<li><code>power shell</code></li>
+<li><code>git bash</code></li>
+<li>….</li>
+</ol>
+</li>
+<li>输入命令<code>node xx.js</code><ol>
+<li><code>xx.js</code>是需要执行的文件名</li>
+<li>中间有<strong>空格</strong></li>
+</ol>
+</li>
+</ol>
+<h3 id="补充：指定文件夹打开终端的方法："><a href="#补充：指定文件夹打开终端的方法：" class="headerlink" title="补充：指定文件夹打开终端的方法："></a><strong>补充：指定文件夹打开终端的方法：</strong></h3><ol>
+<li><code>cmd</code>:<ol>
+<li>文件夹路径处输入<code>cmd</code>，回车</li>
+</ol>
+</li>
+<li><code>powershell</code><ol>
+<li>在文件夹路径处输入<code>powershell</code>,回车</li>
+</ol>
+</li>
+<li><code>git bash</code><ol>
+<li>文件夹中直接鼠标右键<code>git bash here</code>即可</li>
+</ol>
+</li>
+<li><code>vscode</code><ol>
+<li>在左侧资源管理中选中文件并右键</li>
+<li>选择:<code>在集成终端中打开</code></li>
+<li>**ctrl+`**可以快速切换终端的开关</li>
+<li><strong>注意：</strong><ol>
+<li>初期<strong>不建议开多个</strong></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="补充-终端使用技巧"><a href="#补充-终端使用技巧" class="headerlink" title="补充-终端使用技巧"></a><strong>补充-终端使用技巧</strong></h3><ol>
+<li>方向键<code>↑</code>,<code>↓</code>可以切换历史命令</li>
+<li>按<code>tab</code>可以自动补全</li>
+<li><code>cls</code>或者<code>clear</code>可以清屏</li>
+<li><code>cd ../</code>,<code>cd 文件夹名</code>… 路径切换</li>
+<li>….</li>
+</ol>
+<h3 id="Q小结"><a href="#Q小结" class="headerlink" title="Q小结"></a>Q小结</h3><blockquote>
+<p>刚才演示了如何使用<code>Node.js</code>:</p>
+</blockquote>
+<ul>
+<li>演示的两种方法中建议使用哪一种?<ol>
+<li><code>node xxx.js</code></li>
+</ol>
+</li>
+<li>电脑上有那么多的终端工具，建议用哪一种？<ol>
+<li>随便, 选一个自己喜欢的   </li>
+<li>=⇒ mac  推荐 iterm2  =⇒ oh my zsh</li>
+</ol>
+</li>
+</ul>
+<h2 id="global模块"><a href="#global模块" class="headerlink" title="global模块"></a><strong><strong>global模块</strong></strong></h2><p>类似于<code>window</code>对象,node中也有全局模块,在使用时不需要引入，直接使用</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/api/modules.html#__dirname">传送门:__dirname</a></li>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v16.x/docs/api/modules.html#__filename">传送门:__filename</a></li>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v16.x/docs/api/console.html">传送门:console</a></li>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v16.x/docs/api/globals.html#setintervalcallback-delay-args">传送门:setTimeout</a></li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * window 浏览器中的全局对象</span></span><br><span class="line"><span class="comment">  * global nodejs中的全局对象</span></span><br><span class="line"><span class="comment">  * 注意 : node里面使用 global里面的变量,不需要引入</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">//1. console.log()  打印</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//2. setTimeout 和setInterval ，延时器和定时器</span></span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;123&#x27;</span>);</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 模块作用域下的属性 </span></span><br><span class="line">  <span class="comment">//3. __dirname  当前文件夹的绝对路径</span></span><br><span class="line">  <span class="comment">//4. __filename 当前文件的完整路径, 包含当前文件</span></span><br><span class="line">  <span class="comment">//从当前所在磁盘盘符一直到当前文件夹的路径</span></span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(__dirname);</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(__filename);</span><br></pre></td></tr></table></figure>
+
+<h2 id="FS模块"><a href="#FS模块" class="headerlink" title="FS模块"></a><strong><strong>FS模块</strong></strong></h2><p><code>fs</code>模块是<code>nodejs</code>中最常用的一个模块，fs模块的方法非常多,今天咱们了解2个即可</p>
+<p>文档地址：<a target="_blank" rel="noopener" href="http://nodejs.cn/api/fs.html">http://nodejs.cn/api/fs.html</a></p>
+<p><strong>注意：</strong></p>
+<ol>
+<li>除了global模块中的内容可以直接使用，其他模块都是需要加载的。</li>
+<li>fs模块不是全局的，不能直接使用。因此需要导入才能使用。</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类似于浏览器中 script src=&quot;xx&quot;</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a><strong>读取文件</strong></h3><blockquote>
+<p>首先是读取文件的方法</p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fsreadfilesyncpath-options">传送门:readFileSync</a></p>
+</blockquote>
+<p>⇒ 中文  </p>
+<p><a target="_blank" rel="noopener" href="https://www.nodeapp.cn/fs.html#fs_fs_readfilesync_path_options">文件系统 | Node.js 中文文档 | Node.js 中文网</a></p>
+<p><code>fs</code>模块提供的读取文件的方法有很多种,咱们来学习这种同步的读取写法</p>
+<p>⇒ 同步读取文件</p>
+<p><strong>写法1:</strong> 不考虑异常</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写法1 不给编码格式 返回buffer对象</span></span><br><span class="line"><span class="comment">// const res = fs.readFileSync(&#x27;./info/a.txt&#x27;)</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;res:&#x27;</span>, res)</span><br><span class="line"><span class="comment">// 写法2 给编码格式</span></span><br><span class="line"><span class="keyword">const</span> res2 = fs.<span class="title function_">readFileSync</span>(<span class="string">&#x27;./info/a.txt&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;res2:&#x27;</span>, res2)</span><br></pre></td></tr></table></figure>
+
+<p>**写法2:**可以通过<code>try-catch</code>捕获</p>
+<p>⇒ Buffer 缓冲对象</p>
+<p>JavaScript 语言没有读取或操作二进制数据流的机制。 Buffer 类被引入作为 Node.js API 的一部分，使其可以在 TCP 流或文件系统操作等场景中处理二进制数据流。</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/nodejs/nodejs-buffer.html">https://www.runoob.com/nodejs/nodejs-buffer.htm</a>l</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="title class_">Buffer</span>对象是<span class="title class_">Nodejs</span>用于处理二进制数据的。</span><br><span class="line"><span class="number">2.</span> 其实任意的数据在计算机底层都是二进制数据，因为计算机只认识二进制。</span><br><span class="line"><span class="number">3.</span> 所以读取任意的文件，返回的结果都是二进制数据，即<span class="title class_">Buffer</span>对象</span><br><span class="line"><span class="number">4.</span> <span class="title class_">Buffer</span>对象可以调用<span class="title function_">toString</span>()方法转换成字符串。</span><br></pre></td></tr></table></figure>
+
+<h3 id="Q-小结"><a href="#Q-小结" class="headerlink" title="Q:小结"></a>Q:小结</h3><ul>
+<li><code>readFileSync</code>是哪个模块点出来的?<ol>
+<li><code>fs</code></li>
+</ol>
+</li>
+<li>不设置编码格式返回的是什么?<ol>
+<li><strong>用进制的方式表示的Buffer数据</strong></li>
+</ol>
+</li>
+</ul>
+<h3 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h3><p>接下来咱们来学习如何写文件</p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fswritefilesyncfile-data-options">传送门:writeFileSync</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.nodeapp.cn/fs.html#fs_fs_writefilesync_file_data_options">文件系统 | Node.js 中文文档 | Node.js 中文网</a></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数1 路径</span></span><br><span class="line"><span class="comment">// 参数2 内容</span></span><br><span class="line"><span class="comment">// 可以使用try-catch捕获异常</span></span><br><span class="line">fs.<span class="title function_">writeFileSync</span>(<span class="string">&#x27;./info/a.txt&#x27;</span>,<span class="string">&#x27;内容&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 基本使用</span><br><span class="line"><span class="number">2.</span> 文件不存在</span><br><span class="line"><span class="number">3.</span> 文件夹和文件均不存在</span><br></pre></td></tr></table></figure>
+
+<h3 id="Q小结-1"><a href="#Q小结-1" class="headerlink" title="Q小结"></a>Q小结</h3><p>刚才咱们演示了如何写文件:</p>
+<ul>
+<li><code>writeFileSync</code>是哪个模块点出来的?<ol>
+<li><code>fs</code></li>
+</ol>
+</li>
+<li>文件不存在是否会报错?<ol>
+<li>不会–&gt;创建</li>
+</ol>
+</li>
+<li>文件夹不存在是否会报错?<ol>
+<li>报错–&gt;找不到</li>
+</ol>
+</li>
+</ul>
+<h3 id="练习-成绩统计"><a href="#练习-成绩统计" class="headerlink" title="练习 - 成绩统计"></a>练习 <strong><strong>- 成绩统计</strong></strong></h3><blockquote>
+<p>结合刚刚学习的内容,咱们来完成一个成绩统计的案例</p>
+</blockquote>
+<p><strong>需求</strong></p>
+<ol>
+<li>读取<code>成绩.txt</code>中的成绩并进行累加</li>
+<li>将累加的结果保存到,<code>总成绩.txt</code>中</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">小明=<span class="number">98</span>,小红=<span class="number">68</span>,小黑=<span class="number">88</span>,小绿=<span class="number">77</span>,小王=<span class="number">59</span>,小白=<span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤:"></a><strong>步骤:</strong></h3><ol>
+<li>读取数据<ol>
+<li><code>fs.readFileSync</code></li>
+</ol>
+</li>
+<li>转换数据格式<ol>
+<li>,—&gt;分隔 <code>split</code>–字符串–&gt;数组</li>
+<li><code>=</code>-&gt;<code>split</code>获取到数值</li>
+</ol>
+</li>
+<li>累加并保存<ol>
+<li>累加</li>
+<li><code>fs.writeFileSync</code></li>
+</ol>
+</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="comment">// 1. 读取数据</span></span><br><span class="line"><span class="keyword">const</span> scope = fs.<span class="title function_">readFileSync</span>(<span class="string">&#x27;./score/成绩.txt&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"><span class="comment">// console.log(&#x27;scope:&#x27;, scope)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.转换数据格式</span></span><br><span class="line"><span class="comment">// 根据,切换为 数组</span></span><br><span class="line"><span class="keyword">const</span> arr = scope.<span class="title function_">split</span>(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line"><span class="comment">// 基于数组 获取每一项中的数字</span></span><br><span class="line"><span class="keyword">const</span> numArr = arr.<span class="title function_">map</span>(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// console.log(v.split(&#x27;=&#x27;))</span></span><br><span class="line">  <span class="comment">// 切割之后索引为1的值 str</span></span><br><span class="line">  <span class="comment">// +str--&gt;数字</span></span><br><span class="line">  <span class="keyword">return</span> +v.<span class="title function_">split</span>(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// console.log(&#x27;numArr:&#x27;, numArr)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.累加+保存</span></span><br><span class="line"><span class="keyword">const</span> total = numArr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">pre, cur</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> pre + cur</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="comment">// console.log(&#x27;total:&#x27;, total)</span></span><br><span class="line"><span class="comment">// 不允许直接写入数字 转为 字符串</span></span><br><span class="line"><span class="comment">// 数字+&#x27;&#x27;--&gt;string</span></span><br><span class="line">fs.<span class="title function_">writeFileSync</span>(<span class="string">&#x27;./score/总成绩.txt&#x27;</span>, total + <span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><ol>
+<li><code>Node.js</code><ol>
+<li><code>JavaScript</code>的运行时环境</li>
+<li>它也可以解析<code>js</code>代码</li>
+</ol>
+</li>
+<li>如何用<code>Node.js</code>解析<code>js</code><ol>
+<li><code>node 文件名.js</code></li>
+</ol>
+</li>
+<li><code>fs</code>文件模块<ol>
+<li><code>const fs = require(&#39;fs&#39;)</code></li>
+<li>读取:<code>fs.readFileSync</code></li>
+<li>写入:<code>fs.writeFileSync</code></li>
+<li>成绩统计的案例</li>
+</ol>
+</li>
+<li><code>reduce</code></li>
+</ol>
+<h2 id="路径动态拼接的问题"><a href="#路径动态拼接的问题" class="headerlink" title="路径动态拼接的问题"></a><strong><strong>路径动态拼接的问题</strong></strong></h2><blockquote>
+<p>目前为止咱们终端所处路径和<code>.js</code>所在的路径相同,如果不相同呢?</p>
+</blockquote>
+<p>⇒ 代码在运行的时候，会以执行<code>node</code> 命令时所处的目录(<strong>小黑窗</strong>)，<strong>动态拼接出（加上文件内部写的路径）</strong>被操作文件的完整路径。</p>
+<h3 id="复现问题步骤"><a href="#复现问题步骤" class="headerlink" title="复现问题步骤:"></a><strong>复现问题步骤:</strong></h3><ol>
+<li><code>node</code>切换到和<code>.js</code>不同级的目录</li>
+<li>运用相对路径执行<code>.js</code>文件 <img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/638dc9b0-5b91-4da0-85cc-1385acfc4cc8/Untitled.png" alt="Untitled"></li>
+<li>测试<strong>基本逻辑</strong>的<code>js</code></li>
+<li>测试上一节<code>demo</code>中的<code>.js</code></li>
+<li>测试使用<strong>绝对路径</strong></li>
+</ol>
+<h3 id="路径动态拼接的问题-1"><a href="#路径动态拼接的问题-1" class="headerlink" title="路径动态拼接的问题"></a><strong>路径动态拼接的问题</strong></h3><p>这一节咱们演示了<strong>路径动态</strong>拼接的问题:</p>
+<ol>
+<li>执行<code>node</code>命令时,代码中的相对路径会和<strong>哪个路径</strong>动态拼接?<ol>
+<li>会和<strong>终端中的路径动态</strong>的拼接</li>
+<li>不是和<code>执行的js</code>动态拼接</li>
+</ol>
+</li>
+<li>相对路径不靠谱,如何解决?<ol>
+<li><strong>绝对路径</strong></li>
+</ol>
+</li>
+</ol>
+<h2 id="path模块"><a href="#path模块" class="headerlink" title="path模块"></a><strong>path模块</strong></h2><blockquote>
+<p>Node.js提供的处理路径的模块path,提供了很多处理路径的方法和属性,他也是一个内置模块</p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v16.x/docs/api/path.html">传送门:path模块</a></p>
+</blockquote>
+<p>类似于<code>FS</code>模块,使用时需要先导入</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>方法很多,咱们了解其中的1个即可</p>
+<ol>
+<li><code>join</code></li>
+</ol>
+<h3 id="拼接-join"><a href="#拼接-join" class="headerlink" title="拼接-join"></a><strong>拼接-join</strong></h3><blockquote>
+<p>首先是join方法,他可以把多个路径片段拼接为完整的路径字符串,并且格式会和当前所在的操作系统一致</p>
+<p><a target="_blank" rel="noopener" href="https://www.nodeapp.cn/path.html#path_path_join_paths">传送门</a></p>
+</blockquote>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a><strong>语法</strong></h3><ol>
+<li>基于文档确认语法</li>
+</ol>
+<h3 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a><strong>测试步骤</strong></h3><ol>
+<li>基于文档确认语法并进行<strong>测试</strong></li>
+<li>测试通过之后:<ol>
+<li>使用<strong>绝对路径</strong>来<strong>读取</strong>文件</li>
+</ol>
+</li>
+</ol>
+<h3 id="拼接-join方法"><a href="#拼接-join方法" class="headerlink" title="拼接-join方法"></a><strong>拼接-join方法</strong></h3><p>这一节咱们演示了如何通过<code>join</code>方法拼接路径:</p>
+<ol>
+<li>利用<code>join</code>方法拼接路径和直接自己拼接的区别是?<ol>
+<li>join更简单</li>
+<li>根据具体的设备,生成不同的路径—&gt;<strong>灵活</strong></li>
+</ol>
+</li>
+<li>不同操作系统拼接出来的路径是否相同?<ol>
+<li><code>\</code>-<code>/</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="http模块"><a href="#http模块" class="headerlink" title="http模块"></a><strong>http模块</strong></h2><blockquote>
+<p>今天的最后我们来学习http模块,并且结合他来开发一个静态资源服务器</p>
+</blockquote>
+<blockquote>
+<p>为了更好的理解后续的代码,咱们来学习一些预备的知识</p>
+</blockquote>
+<h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a><strong>前置知识</strong></h3><p><strong>当我们在浏览器中输入了<a href="notion://www.notion.so/www.baidu.com">www.baidu.com</a>的时候,发生了什么?</strong></p>
+<ul>
+<li>ip地址 域名 端口三者之间的关系?<ul>
+<li><strong>ip地址:</strong><ul>
+<li>任何一台设备(计算机, 手机, …)想要接入到网络中(互联网,局域网)，就会被分配一个<strong>唯一的ip地址</strong></li>
+<li>通过这个<code>ip</code>地址就能找到这台设备</li>
+</ul>
+</li>
+<li><strong>域名:</strong><ul>
+<li>比如 <a href="notion://www.notion.so/www.jd.com">www.jd.com</a> 就是域名 ，方便记忆</li>
+<li>我们购买了<strong>服务器</strong>之后, 服务器会有一个<strong>IP</strong>地址, 我们可以通过<strong>域名解析</strong>让域名指向当前IP</li>
+<li>域名和ip地址绑定后，通过域名就可以找到对应的<strong>ip地址</strong>, 从而访问到该服务器</li>
+</ul>
+</li>
+<li><strong>端口:</strong><ul>
+<li>端口是计算机和外界通讯的<strong>虚拟通道</strong></li>
+<li>一台计算机能运行很多程序, 一般一个程序会占用<strong>一个</strong>或者<strong>多个</strong>端口</li>
+<li>http协议的默认端口是<strong>80</strong></li>
+<li>https协议的默认端口是<strong>443</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fffa8b74-8055-4e76-8e8e-485d7b9cc064/Untitled.png" alt="Untitled"></p>
+<ol>
+<li>根据相关域名, 去查询<code>dns</code>服务器,得到对应的ip地址</li>
+<li>根据<code>IP</code>地址, 找到对应的计算机</li>
+<li>根据<code>端口</code>找到对应的服务器程序</li>
+<li>根据<code>url</code>请求具体的信息</li>
+<li>服务器根据上述信息<strong>发送请求</strong></li>
+<li>浏览器<strong>接收</strong>到了服务器的响应, 把结果响应出来</li>
+</ol>
+<h3 id="什么是http模块"><a href="#什么是http模块" class="headerlink" title="什么是http模块"></a><strong>什么是http模块</strong></h3><blockquote>
+<p>http也是内置模块, Node.js 官方提供的、用来创建web 服务器的模块。</p>
+</blockquote>
+<p>它提供了一系列的方法和属性,让开发者(咱们)可以用代码来创建<strong>服务器</strong>,接收<strong>请求</strong>及响应<strong>内容</strong>例如：</p>
+<p>⚫ <code>http.createServer()</code> 方法，用来创建一个<code>web</code> 服务器，从而对外提供web 资源</p>
+<p>如果要在 <code>Node.js</code>的代码中使用 <code>http</code> 模块，则需要先<strong>导入它</strong>：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="前置知识及http模块介绍"><a href="#前置知识及http模块介绍" class="headerlink" title="前置知识及http模块介绍"></a><strong>前置知识及http模块介绍</strong></h3><p>这一节咱们介绍了请求web服务器的基本流程,及<code>Node</code>自带的<code>http</code>模块:</p>
+<ul>
+<li><code>url</code>地址经由什么解析为<code>ip</code>地址?<ol>
+<li>DNS解析服务器</li>
+</ol>
+</li>
+<li><code>http</code>协议的默认端口是?<ol>
+<li>80</li>
+</ol>
+</li>
+</ul>
+<p><code>node</code>提供了<code>http</code>模块可以让开发者创建<code>web</code>服务器</p>
+<h3 id="创建最基本的web服务器"><a href="#创建最基本的web服务器" class="headerlink" title="创建最基本的web服务器"></a><strong>创建最基本的web服务器</strong></h3><blockquote>
+<p>接下来咱们基于官方的示例代码创建基本的web服务器</p>
+<p><a target="_blank" rel="noopener" href="http://nodejs.cn/api-v16/http.html">传送门:http模块</a></p>
+<p><a target="_blank" rel="noopener" href="http://nodejs.cn/learn#nodejs-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%A4%BA%E4%BE%8B">传送门:Node.js应用程序示例</a></p>
+</blockquote>
+<h3 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a><strong>步骤</strong></h3><ol>
+<li>导入 <code>http</code> 模块</li>
+<li>创建 <code>web</code> 服务器实例</li>
+<li>启动服务器</li>
+<li>为服务器实例绑定<code>request</code> 事件，监听客户端的请求</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 导入 http 模块 </span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 创建 web 服务器实例 </span></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 启动服务器</span></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`server is running.... at 3000`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 为服务器实例绑定 request 事件，监听客户端的请求 </span></span><br><span class="line"><span class="comment">// 当客户端发送请求到服务器的时候，会触发这个事件</span></span><br><span class="line">server.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 这里要处理客户端的请求</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hello yohuohuohuo&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="端口号"><a href="#端口号" class="headerlink" title="端口号"></a><strong>端口号</strong></h3><p>计算机中的<strong>端口号</strong></p>
+<ol>
+<li>计算机和外部通讯的虚拟通道</li>
+<li>范围是:<strong>0—65535</strong></li>
+<li>一个端口一次<strong>只能被一个</strong>服务占用:<ol>
+<li>比较靠前的端口很多已经被电脑默认的服务占用</li>
+<li>一般给4位的没什么被占用</li>
+</ol>
+</li>
+<li>通过端口号来区分计算机提供的不同服务</li>
+</ol>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b1ce6f05-2f54-4dcb-b3b3-2f9182996cf1/Untitled.png" alt="Untitled"></p>
+<h3 id="Q-小结-1"><a href="#Q-小结-1" class="headerlink" title="Q 小结"></a>Q 小结</h3><ul>
+<li><code>request</code>事件什么时候触发?<ol>
+<li>有人访问服务器会触发</li>
+</ol>
+</li>
+<li>一个端口一次可以被几个服务使用?<ol>
+<li>一个</li>
+</ol>
+</li>
+<li>代码中的<code>3000</code>端口是否可以更换?<ol>
+<li>可以,有效即可</li>
+</ol>
+</li>
+</ul>
+<h2 id="request对象和response对象"><a href="#request对象和response对象" class="headerlink" title="request对象和response对象"></a><strong>request对象和response对象</strong></h2><blockquote>
+<p>传送门:request</p>
+<p><a target="_blank" rel="noopener" href="http://nodejs.cn/api/http.html#http_class_http_serverresponse">传送门:response</a></p>
+</blockquote>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念:"></a><strong>概念:</strong></h3><ol>
+<li>为了让开发者更好的<strong>接收请求</strong>的信息,及<strong>设置返回</strong>的内容</li>
+<li><code>request</code>事件中提供了<strong>2个</strong>参数,分别是<ol>
+<li><code>request</code></li>
+<li><code>response</code></li>
+</ol>
+</li>
+</ol>
+<h3 id="request常见属性："><a href="#request常见属性：" class="headerlink" title="request常见属性："></a><strong><strong>request常见属性：</strong></strong></h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">headers</span>: 所有的请求头信息</span><br><span class="line">method： 请求的方式(*)</span><br><span class="line">url： 请求的地址(*)</span><br></pre></td></tr></table></figure>
+
+<h3 id="response常见属性和方法"><a href="#response常见属性和方法" class="headerlink" title="response常见属性和方法"></a><strong><strong>response常见属性和方法</strong></strong></h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">end</span>(data); 结束请求，并且响应一段内容，相当于res.<span class="title function_">write</span>(data) + res.<span class="title function_">end</span>()</span><br><span class="line">res.<span class="property">statusCode</span>: 响应的的状态码 <span class="number">200</span> <span class="number">404</span> <span class="number">500</span></span><br><span class="line">res.<span class="title function_">setHeader</span>(name, value); 设置响应头信息， 比如content-type</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试:"></a><strong>测试:</strong></h3><ol>
+<li>输出<code>request</code>对象中的<code>method</code>和<code>url</code>属性</li>
+<li>通过<code>statusCode</code>属性设置不同的状态码</li>
+<li>通过<code>setHeader</code>设置响应头</li>
+<li>通过<code>end</code>设置不同的内容</li>
+<li><strong>注意:</strong><ol>
+<li>代码更改之后需要<code>ctrl+c</code>关闭并重新运行</li>
+<li><code>favicon.ico</code>的请求是浏览器自己发送的</li>
+<li>返回的内容中如果有<strong>中文会乱码</strong></li>
+</ol>
+</li>
+</ol>
+<h3 id="解决中文乱码问题"><a href="#解决中文乱码问题" class="headerlink" title="解决中文乱码问题"></a><strong>解决中文乱码问题</strong></h3><p>当调用 <code>res.end()</code> 方法，向客户端发送中文内容的时候，会出现乱码问题，此时，需要手动设置内容的编码格式,下面给出一些<code>content-type</code>的设置方法</p>
+<p><strong>注意:</strong></p>
+<ul>
+<li>部分内容可以省略<code>content-type</code>设置,浏览器可以自行推断</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通文本</span></span><br><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/plain; charset=utf-8&#x27;</span>);</span><br><span class="line"><span class="comment">// html</span></span><br><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/html; charset=utf-8&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如何理解<code>request</code>和<code>response</code>对象?<ol>
+<li><code>request</code>:<ol>
+<li>请求,http模块,客户端请求的信息 保存到了 request中方便调用</li>
+<li><code>url</code></li>
+<li><code>method</code></li>
+</ol>
+</li>
+<li><code>response</code><ol>
+<li>响应,http模块为了让开发者,可以便捷的设置状态码,响应头,内容,提供了这么一个对象</li>
+<li><code>statusCode</code>属性</li>
+<li><code>setHeader(key,value)</code></li>
+<li><code>response.setHeader(&#39;Content-Type&#39;, &#39;text/plain; charset=utf-8&#39;)</code></li>
+<li><code>end(&#39;内容&#39;)</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>回调函数中<code>request</code>和<code>response</code>的名字是否可以修改?<ol>
+<li>可以—&gt;形参</li>
+</ol>
+</li>
+</ul>
+<h2 id="根据url响应不同的html内容"><a href="#根据url响应不同的html内容" class="headerlink" title="根据url响应不同的html内容"></a><strong>根据url响应不同的html内容</strong></h2><blockquote>
+<p>接下来咱们结合目前学习的知识来实现一个具体的效果</p>
+</blockquote>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求:"></a><strong>需求:</strong></h3><ol>
+<li><code>url</code>为<ol>
+<li><code>/</code>或者<code>/index.html</code>–&gt;<code>&lt;h1&gt;首页&lt;/h1&gt;</code></li>
+<li><code>/about.html</code>–&gt;<code>&lt;h1&gt;about页面&lt;/h1&gt;</code></li>
+<li>其他—-&gt;<code>&lt;h1&gt;404 not found&lt;/h1&gt;</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="练习-时钟案例"><a href="#练习-时钟案例" class="headerlink" title="练习-时钟案例"></a>练习-时钟案例</h2><blockquote>
+<p>接下来结合目前所学的知识来完成一个demo</p>
+</blockquote>
+<h3 id="需求-1"><a href="#需求-1" class="headerlink" title="需求:"></a><strong>需求:</strong></h3><p>浏览器输入<strong>对应的url地址</strong>,<strong>读取并返回</strong>对应的文件</p>
+<ol>
+<li><code>/</code>或者<code>/index.html</code>–&gt;返回<code>/clock/index.html</code></li>
+<li><code>/clock.css</code>–&gt;返回<code>/clock/clock.css</code></li>
+<li><code>/clock.js</code>–&gt;返回<code>/clock/clock.js</code></li>
+<li>其他—-&gt;<code>&lt;h1&gt;404 not found&lt;/h1&gt;</code></li>
+</ol>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析:"></a><strong>分析:</strong></h3><ol>
+<li><strong>绝对路径</strong>读取文件需要导入?<ol>
+<li><code>path.join()</code></li>
+<li><code>fs.readFileSync</code></li>
+</ol>
+</li>
+<li><strong>返回</strong>读取的文件<ol>
+<li><code>end</code>方法响应内容</li>
+</ol>
+</li>
+<li><strong>不需要</strong>设置<code>utf-8</code>的编码格式（读取文件不需要）</li>
+<li><strong>不需要</strong>设置<code>content-type</code></li>
+</ol>
+<h1 id="实现静态WEB服务器"><a href="#实现静态WEB服务器" class="headerlink" title="实现静态WEB服务器"></a><strong>实现静态WEB服务器</strong></h1><blockquote>
+<p>基于上一节的代码,调整为静态web服务器</p>
+<ul>
+<li>运行之后</li>
+<li>同一局域网中的用户输入<ul>
+<li><code>http://ip:端口/xxx.html</code></li>
+<li><code>http://ip:端口/xxx.png</code></li>
+</ul>
+</li>
+<li>即可访问服务器<code>www</code>目录中对应的文件</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>首先完成响应首页的逻辑</p>
+</blockquote>
+<h3 id="需求-2"><a href="#需求-2" class="headerlink" title="需求:"></a><strong>需求:</strong></h3><ol>
+<li>浏览器中输入<code>/</code>或者<code>/index.html</code></li>
+<li>读取并返回<code>www</code>目录中的<code>index.html</code></li>
+</ol>
+<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析:"></a><strong>分析:</strong></h3><ol>
+<li><strong>准备工作</strong>:<ol>
+<li>创建<code>www</code>目录并整合上一节的时钟界面</li>
+</ol>
+</li>
+<li><strong>绝对路径</strong>读取文件,需要导入哪些模块?<ol>
+<li>fs</li>
+<li>path</li>
+</ol>
+</li>
+<li><strong>返回读取的内容</strong><ol>
+<li><code>end</code>方法响应内容</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 导入 http 模块</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 创建 web 服务器实例</span></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 启动服务器</span></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">8848</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;my server start work&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 为服务器实例绑定 request 事件，监听客户端的请求</span></span><br><span class="line">server.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>, <span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 判断地址 / 和 /index.html ---&gt;/index.html</span></span><br><span class="line">  <span class="keyword">let</span> url = request.<span class="property">url</span></span><br><span class="line">  <span class="comment">// 1./ /index.html 读取并返回 index.html</span></span><br><span class="line">  <span class="keyword">if</span> (url === <span class="string">&#x27;/&#x27;</span> || url === <span class="string">&#x27;/index.html&#x27;</span>) &#123;</span><br><span class="line">    url = <span class="string">&#x27;/index.html&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 读取并返回</span></span><br><span class="line">  <span class="comment">// 绝对路径 读取内容 响应给浏览器</span></span><br><span class="line">  <span class="keyword">const</span> fullPath = path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;./www&#x27;</span>, url)</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> res = fs.<span class="title function_">readFileSync</span>(fullPath)</span><br><span class="line">    response.<span class="title function_">end</span>(res)</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>基于上一小节的逻辑,完成后续的代码</p>
+</blockquote>
+<h3 id="需求-3"><a href="#需求-3" class="headerlink" title="需求:"></a><strong>需求:</strong></h3><ol>
+<li>请求其他的资源,读取<code>www</code>目录中对应的文件并返回</li>
+<li>读取失败响应<code>404</code>-&gt;<code>not found</code></li>
+</ol>
+<h3 id="步骤-2"><a href="#步骤-2" class="headerlink" title="步骤:"></a><strong>步骤:</strong></h3><ol>
+<li><strong>生成</strong>读取的<strong>文件路径</strong><ol>
+<li>基于<code>url</code>属性,生成绝对路径</li>
+</ol>
+</li>
+<li><strong>返回</strong>读取的内容<ol>
+<li><code>end</code>方法</li>
+</ol>
+</li>
+</ol>
+<h2 id="end"><a href="#end" class="headerlink" title="end~~~~~~~~~~~~"></a>end~~~~~~~~~~~~</h2><hr>
+<p><a target="_blank" rel="noopener" href="https://www.electronjs.org/zh/docs/latest">简介 | Electron</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/remy/nodemon">https://github.com/remy/nodemon</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/nodemon">https://www.npmjs.com/package/nodemon</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nodemon</span><br><span class="line"></span><br><span class="line">nodemon [your node app]</span><br></pre></td></tr></table></figure>
+
+<p>node本地启动服务，同一个局域网下，要关闭电脑的防火墙才能访问。</p>
+<p>自己手机开热点，ipconfig ； 关掉电脑防火墙； 可以访问</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/z17864151193/article/details/123897689">vite启动后提示”Network: use <code>--host</code> to expose”，且无法通过网络IP访问服务_南桥几许的博客-CSDN博客_vite 局域网访问</a></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> hostname = <span class="string">&#x27;127.0.0.1&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">8888</span>;</span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> ip = req.<span class="property">socket</span>.<span class="property">localAddress</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ip)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// http://$&#123;hostname&#125;:$&#123;port&#125;/</span></span><br><span class="line">server.<span class="title function_">listen</span>(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Server running at <span class="subst">$&#123;port&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">url</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">method</span>)</span><br><span class="line">  res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/html&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> fullPath = path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line">  <span class="keyword">const</span> fileHTML = fs.<span class="title function_">readFileSync</span>(fullPath)</span><br><span class="line">  res.<span class="title function_">end</span>(fileHTML)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="nodemon的安装"><a href="#nodemon的安装" class="headerlink" title="nodemon的安装"></a>nodemon的安装</h3><p>当我们修改了后台node服务器的代码之后，都需要重启node服务器。我们可以<strong>使用nodemon来自动重启服务</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局安装nodemon</span></span><br><span class="line"><span class="comment"># npm </span></span><br><span class="line">npm install -g nodemon </span><br><span class="line"><span class="comment"># or using yarn: </span></span><br><span class="line">yarn global add nodemon</span><br></pre></td></tr></table></figure>
+
+<h3 id="Node-js-Web框架"><a href="#Node-js-Web框架" class="headerlink" title="Node.js-Web框架"></a>Node.js-Web框架</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://www.expressjs.com.cn/">Express</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.koajs.com.cn/">koa</a></li>
+</ol>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0c3cca3d-315c-4665-9a81-0023351eaaf5/Untitled.png" alt="Untitled"></p>
+<h3 id="Mock数据"><a href="#Mock数据" class="headerlink" title="Mock数据"></a>Mock数据</h3>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r="龙"
+        data-o="龙"
+        data-a="龙"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">Node.js是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js-%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="toc-number">1.1.</span> <span class="toc-text">Node.js 发展历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js%E8%83%BD%E5%B9%B2%E5%95%A5%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">Node.js能干啥？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">Node.js下载安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BB%88%E7%AB%AF%E7%AA%97%E5%8F%A3"><span class="toc-number">2.2.</span> <span class="toc-text">常见的终端窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Node-js-%E8%BF%90%E8%A1%8C-Javascript-%E4%BB%A3%E7%A0%81"><span class="toc-number">2.3.</span> <span class="toc-text">如何使用Node.js 运行 Javascript 代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">2.4.</span> <span class="toc-text">补充：指定文件夹打开终端的方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85-%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-number">2.5.</span> <span class="toc-text">补充-终端使用技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%E5%B0%8F%E7%BB%93"><span class="toc-number">2.6.</span> <span class="toc-text">Q小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#global%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text">global模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FS%E6%A8%A1%E5%9D%97"><span class="toc-number">4.</span> <span class="toc-text">FS模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"><span class="toc-number">4.1.</span> <span class="toc-text">读取文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q-%E5%B0%8F%E7%BB%93"><span class="toc-number">4.2.</span> <span class="toc-text">Q:小结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E6%96%87%E4%BB%B6"><span class="toc-number">4.3.</span> <span class="toc-text">写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%E5%B0%8F%E7%BB%93-1"><span class="toc-number">4.4.</span> <span class="toc-text">Q小结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0-%E6%88%90%E7%BB%A9%E7%BB%9F%E8%AE%A1"><span class="toc-number">4.5.</span> <span class="toc-text">练习 - 成绩统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">4.6.</span> <span class="toc-text">步骤:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E9%A1%BE"><span class="toc-number">4.7.</span> <span class="toc-text">回顾</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E6%8B%BC%E6%8E%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">路径动态拼接的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E7%8E%B0%E9%97%AE%E9%A2%98%E6%AD%A5%E9%AA%A4"><span class="toc-number">5.1.</span> <span class="toc-text">复现问题步骤:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E6%8B%BC%E6%8E%A5%E7%9A%84%E9%97%AE%E9%A2%98-1"><span class="toc-number">5.2.</span> <span class="toc-text">路径动态拼接的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#path%E6%A8%A1%E5%9D%97"><span class="toc-number">6.</span> <span class="toc-text">path模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%BC%E6%8E%A5-join"><span class="toc-number">6.1.</span> <span class="toc-text">拼接-join</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">6.2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%AD%A5%E9%AA%A4"><span class="toc-number">6.3.</span> <span class="toc-text">测试步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%BC%E6%8E%A5-join%E6%96%B9%E6%B3%95"><span class="toc-number">6.4.</span> <span class="toc-text">拼接-join方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E6%A8%A1%E5%9D%97"><span class="toc-number">7.</span> <span class="toc-text">http模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">7.1.</span> <span class="toc-text">前置知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFhttp%E6%A8%A1%E5%9D%97"><span class="toc-number">7.2.</span> <span class="toc-text">什么是http模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E5%8F%8Ahttp%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D"><span class="toc-number">7.3.</span> <span class="toc-text">前置知识及http模块介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">7.4.</span> <span class="toc-text">创建最基本的web服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1"><span class="toc-number">7.5.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="toc-number">7.6.</span> <span class="toc-text">端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q-%E5%B0%8F%E7%BB%93-1"><span class="toc-number">7.7.</span> <span class="toc-text">Q 小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#request%E5%AF%B9%E8%B1%A1%E5%92%8Cresponse%E5%AF%B9%E8%B1%A1"><span class="toc-number">8.</span> <span class="toc-text">request对象和response对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">8.1.</span> <span class="toc-text">概念:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#request%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7%EF%BC%9A"><span class="toc-number">8.2.</span> <span class="toc-text">request常见属性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#response%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-number">8.3.</span> <span class="toc-text">response常见属性和方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">8.4.</span> <span class="toc-text">测试:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"><span class="toc-number">8.5.</span> <span class="toc-text">解决中文乱码问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AEurl%E5%93%8D%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84html%E5%86%85%E5%AE%B9"><span class="toc-number">9.</span> <span class="toc-text">根据url响应不同的html内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82"><span class="toc-number">9.1.</span> <span class="toc-text">需求:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0-%E6%97%B6%E9%92%9F%E6%A1%88%E4%BE%8B"><span class="toc-number">10.</span> <span class="toc-text">练习-时钟案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82-1"><span class="toc-number">10.1.</span> <span class="toc-text">需求:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">10.2.</span> <span class="toc-text">分析:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E9%9D%99%E6%80%81WEB%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">实现静态WEB服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82-2"><span class="toc-number">0.1.</span> <span class="toc-text">需求:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90-1"><span class="toc-number">0.2.</span> <span class="toc-text">分析:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82-3"><span class="toc-number">0.3.</span> <span class="toc-text">需求:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-2"><span class="toc-number">0.4.</span> <span class="toc-text">步骤:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#end"><span class="toc-number">1.</span> <span class="toc-text">end~~~~~~~~~~~~</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nodemon%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">nodemon的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js-Web%E6%A1%86%E6%9E%B6"><span class="toc-number">1.2.</span> <span class="toc-text">Node.js-Web框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mock%E6%95%B0%E6%8D%AE"><span class="toc-number">1.3.</span> <span class="toc-text">Mock数据</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
