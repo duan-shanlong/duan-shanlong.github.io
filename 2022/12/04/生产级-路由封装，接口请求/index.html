@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>生产级--路由封装，接口请求 - 反抗军</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="前端,"> 
+    <meta name="description" content="引入和导出的两种方法
+导出：export
+导入：import { 对应导出的那个变量名 } from ‘路径’
+可以一次导出多个
+1234567891011导出文件      export cons,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="反抗军" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="生产级--路由封装，接口请求 - 反抗军"/>
+    <meta name="twitter:description" content="引入和导出的两种方法
+导出：export
+导入：import { 对应导出的那个变量名 } from ‘路径’
+可以一次导出多个
+1234567891011导出文件      export cons,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="反抗军"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="生产级--路由封装，接口请求 - 反抗军"/>
+    <meta property="og:description" content="引入和导出的两种方法
+导出：export
+导入：import { 对应导出的那个变量名 } from ‘路径’
+可以一次导出多个
+1234567891011导出文件      export cons,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">反抗军</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">生产级--路由封装，接口请求</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">生产级--路由封装，接口请求</h1>
+        <div class="stuff">
+            <span>十二月 04, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h3 id="引入和导出的两种方法"><a href="#引入和导出的两种方法" class="headerlink" title="引入和导出的两种方法"></a>引入和导出的两种方法</h3><ol>
+<li><p>导出：export</p>
+<p>导入：import { 对应导出的那个变量名 } from ‘路径’</p>
+<p>可以一次导出多个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">导出文件      </span><br><span class="line">export const request1 = axios.create(&#123;</span><br><span class="line">  baseURL: &#x27;https://www.escook.cn&#x27;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export const request2 = axios.create(&#123;</span><br><span class="line">  baseURL: &#x27;https://www.xxxx.cn&#x27;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">导入文件</span><br><span class="line">import &#123; request1,  request2&#125; from &#x27;导出文件 &#x27;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>导出：export default</p>
+<p> 默认导出一个文件中只能导出一个内容</p>
+<p>  导入：import 自定义变量 from ‘路径’</p>
+</li>
+</ol>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">导出文件      </span><br><span class="line">export const request1 = axios.create(&#123;</span><br><span class="line">  baseURL: &#x27;https://www.escook.cn&#x27;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export const request2 = axios.create(&#123;</span><br><span class="line">  baseURL: &#x27;https://www.xxxx.cn&#x27;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">导入文件</span><br><span class="line">export default request1 或者 request2</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="路由封装"><a href="#路由封装" class="headerlink" title="路由封装"></a>路由封装</h3><p>为什么要封装？</p>
+<p>因为在创建规则数组时，要求引入多个vue，写多个配置对象</p>
+<p>在src中，创建一个router文件夹，里面有一个index.js文件，路由的配置前5步放入其中，然后导出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">// 1. 下载vue-router依赖， npm i vue-router@3.5.1</span><br><span class="line">// 2. 引入路由</span><br><span class="line">import VueRouter from &#x27;vue-router&#x27;</span><br><span class="line">// 3. 使用</span><br><span class="line">import Vue from &#x27;vue&#x27;</span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line">// 4. 创建规则数组</span><br><span class="line">import Home from &#x27;../views/home.vue&#x27;</span><br><span class="line">import Pay from &#x27;../views/pay.vue&#x27;</span><br><span class="line">import UserInfo from &#x27;../views/userInfo.vue&#x27;</span><br><span class="line"></span><br><span class="line">const routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    path: &#x27;/home&#x27;,</span><br><span class="line">    component: Home</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    path: &#x27;/pay&#x27;,</span><br><span class="line">    component: Pay</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    path: &#x27;/userInfo&#x27;,</span><br><span class="line">    component: UserInfo</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">// 5. 创建路由实例化对象</span><br><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  routes</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export default router</span><br><span class="line"></span><br><span class="line">main.js中</span><br><span class="line">new Vue(&#123; // 实例化vue对象</span><br><span class="line">  // 6. 关联vue对象</span><br><span class="line">  router,</span><br><span class="line">  render: h =&gt; h(App),</span><br><span class="line">&#125;).$mount(&#x27;#app&#x27;)</span><br><span class="line"></span><br><span class="line">挂载文件</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="接口请求"><a href="#接口请求" class="headerlink" title="接口请求"></a>接口请求</h3><h4 id="1-全局配置接口请求模块"><a href="#1-全局配置接口请求模块" class="headerlink" title="1. 全局配置接口请求模块"></a>1. 全局配置接口请求模块</h4><p>在src中创建一个utils工具文件夹，在里面创建一个request.js文件用来存储<strong>全局配置接口请求模块</strong></p>
+<p>目的：当以后url改变时，能够在同一的地方进行配置使用，在此文件修改根域名，不用满文件去找</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 1. 引入axios</span><br><span class="line">import axios from &#x27;axios&#x27;</span><br><span class="line"></span><br><span class="line">// 2. 创建并导出请求基本地址配置</span><br><span class="line">// 目的：当以后url改变时，能够在同一的地方进行配置使用</span><br><span class="line">export const request1 = axios.create(&#123;</span><br><span class="line">  baseURL: &#x27;https://www.escook.cn&#x27;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export const request2 = axios.create(&#123;</span><br><span class="line">  baseURL: &#x27;https://www.xxxx.cn&#x27;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-按照需求对接口进行分类"><a href="#2-按照需求对接口进行分类" class="headerlink" title="2. 按照需求对接口进行分类"></a>2. 按照需求对接口进行分类</h4><p>在src中创建一个api接口文件夹，在里面分类创建不同的功能的方法模块，方便使用接口（需要按照业务需求进行接口的分类）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">api文件夹goods.js中</span><br><span class="line">// 商品相关接口模块 - api功能方法模块</span><br><span class="line">// /api/goods</span><br><span class="line">// 引入根接口，拼接接口地址即可</span><br><span class="line">import &#123; request1 &#125; from &#x27;../utils/request.js&#x27;</span><br><span class="line"></span><br><span class="line">// 获取商品列表</span><br><span class="line">export const GetGoodsList = () =&gt; request1(&#123;</span><br><span class="line">  method: &#x27;GET&#x27;,</span><br><span class="line">  url: &#x27;/api/goods&#x27;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">api文件夹user.js中</span><br><span class="line">// 用户相关接口模块 - api功能方法模块</span><br><span class="line">// /login</span><br><span class="line">import &#123; request2 &#125; from &#x27;../utils/request.js&#x27;</span><br><span class="line"></span><br><span class="line">// 用户登录</span><br><span class="line">export const login = data =&gt; request2(&#123;</span><br><span class="line">  method: &#x27;POST&#x27;,</span><br><span class="line">  url: &#x27;/login&#x27;,</span><br><span class="line">  data</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 获取验证码</span><br><span class="line">export const getSms = params =&gt; request2(&#123;</span><br><span class="line">  method: &#x27;GET&#x27;,</span><br><span class="line">  url: &#x27;/getSms&#x27;,</span><br><span class="line">  params</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-api统一汇总导出"><a href="#3-api统一汇总导出" class="headerlink" title="3. api统一汇总导出"></a>3. api统一汇总导出</h4><p>src中创建一个api接口文件夹，在里面创建index.js文件，用于做api中所有分类接口的统一导出文件（因为这样做，需要接口的组件，只需要导入这一个js文件，就可以获得所有的接口，按需要自取）</p>
+<p>作用：引入各个功能模块中的接口方法，再次统一导出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">api文件夹index.js中</span><br><span class="line"></span><br><span class="line">import &#123; GetGoodsList &#125; from &#x27;./goods.js&#x27;</span><br><span class="line">import &#123; login, getSms &#125; from &#x27;./user.js&#x27;</span><br><span class="line"></span><br><span class="line">export const GetGoodsListAPI = GetGoodsList</span><br><span class="line">export const loginAPI = login</span><br><span class="line">export const getSmsAPI = getSms</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-使用接口"><a href="#4-使用接口" class="headerlink" title="4. 使用接口"></a>4. 使用接口</h4><p>在需要接口的组件中，引入所有的scr/api/index.js文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">// 引入 scr/api/index.js文件</span><br><span class="line">import &#123; GetGoodsListAPI, loginAPI, getSmsAPI &#125; from &#x27;./api/index.js&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">	created () &#123;</span><br><span class="line">		GetGoodsListAPI().then(res =&gt; &#123;</span><br><span class="line">      	 console.log(&#x27;请求成功时&#x27;, res)</span><br><span class="line">       	&#125;).catch(err =&gt; &#123;</span><br><span class="line">      	 console.log(&#x27;请求失败&#x27;, err)</span><br><span class="line">     	&#125;),</span><br><span class="line">     	</span><br><span class="line">     	loginAPI(&#123;</span><br><span class="line">     	//传参</span><br><span class="line">     		userName: this.form.userName,</span><br><span class="line">            password: this.form.password</span><br><span class="line">     	&#125;).then(res =&gt; &#123;</span><br><span class="line">      	 console.log(&#x27;请求成功时&#x27;, res)</span><br><span class="line">      	 &#125;).catch(err =&gt; &#123;</span><br><span class="line">      	 console.log(&#x27;请求失败&#x27;, err)</span><br><span class="line">     	&#125;),</span><br><span class="line">	&#125;,</span><br><span class="line">	data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      form: &#123;</span><br><span class="line">        userName: &#x27;&#x27;,</span><br><span class="line">        password: &#x27;&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的方法，容易照成<strong>请求地狱</strong>（例如：loginAPI接口的数据必须在GetGoodsListAPI返回后才能请求，多几个就看神了）</p>
+<p>解决方法：async await try catch 四兄弟 - 当某个方法需要调用接口时，直接写出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 引入 scr/api/index.js文件</span><br><span class="line">import &#123; GetGoodsListAPI, loginAPI, getSmsAPI &#125; from &#x27;./api/index.js&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">	created () &#123;</span><br><span class="line">		// 加载数据</span><br><span class="line">		this.loadInfo()</span><br><span class="line">	&#125;,</span><br><span class="line">	methods: &#123;</span><br><span class="line">    async loadInfo () &#123;</span><br><span class="line">      try &#123;</span><br><span class="line">        let res = await GetGoodsListAPI()</span><br><span class="line">        let res2 = await loginAPI()</span><br><span class="line">        let res3 = await getSmsAPI()</span><br><span class="line"></span><br><span class="line">        console.log(res, res2, res3)</span><br><span class="line">      &#125; catch (err) &#123;</span><br><span class="line">        console.log(&#x27;请求失败&#x27;, err)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r="龙"
+        data-o="龙"
+        data-a="龙"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E5%92%8C%E5%AF%BC%E5%87%BA%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">引入和导出的两种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%B0%81%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">路由封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82"><span class="toc-number">3.</span> <span class="toc-text">接口请求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%9D%97"><span class="toc-number">3.1.</span> <span class="toc-text">1. 全局配置接口请求模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%8C%89%E7%85%A7%E9%9C%80%E6%B1%82%E5%AF%B9%E6%8E%A5%E5%8F%A3%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB"><span class="toc-number">3.2.</span> <span class="toc-text">2. 按照需求对接口进行分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-api%E7%BB%9F%E4%B8%80%E6%B1%87%E6%80%BB%E5%AF%BC%E5%87%BA"><span class="toc-number">3.3.</span> <span class="toc-text">3. api统一汇总导出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8%E6%8E%A5%E5%8F%A3"><span class="toc-number">3.4.</span> <span class="toc-text">4. 使用接口</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
