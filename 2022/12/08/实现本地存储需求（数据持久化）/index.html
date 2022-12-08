@@ -10,8 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="前端,"> 
-    <meta name="description" content="实现本地存储需求（数据持久化）放在utils工具文件夹中
-1234567891011121314151617181920212223242526// 本地存储相关方法模块 (数据持久化)// 存储数,"> 
+    <meta name="description" content="实现本地存储需求（数据持久化）放在utils工具文件夹中1234567891011121314151617181920212223242526// 本地存储相关方法模块 (数据持久化)// 存储数据,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="反抗军" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -22,8 +21,7 @@
     
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:title" content="实现本地存储需求（数据持久化） - 反抗军"/>
-    <meta name="twitter:description" content="实现本地存储需求（数据持久化）放在utils工具文件夹中
-1234567891011121314151617181920212223242526// 本地存储相关方法模块 (数据持久化)// 存储数,"/>
+    <meta name="twitter:description" content="实现本地存储需求（数据持久化）放在utils工具文件夹中1234567891011121314151617181920212223242526// 本地存储相关方法模块 (数据持久化)// 存储数据,"/>
     
     
     
@@ -31,8 +29,7 @@
     <meta property="og:site_name" content="反抗军"/>
     <meta property="og:type" content="object"/>
     <meta property="og:title" content="实现本地存储需求（数据持久化） - 反抗军"/>
-    <meta property="og:description" content="实现本地存储需求（数据持久化）放在utils工具文件夹中
-1234567891011121314151617181920212223242526// 本地存储相关方法模块 (数据持久化)// 存储数,"/>
+    <meta property="og:description" content="实现本地存储需求（数据持久化）放在utils工具文件夹中1234567891011121314151617181920212223242526// 本地存储相关方法模块 (数据持久化)// 存储数据,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -74,8 +71,7 @@
 
         </div>
         <div class="content markdown">
-            <h1 id="实现本地存储需求（数据持久化）"><a href="#实现本地存储需求（数据持久化）" class="headerlink" title="实现本地存储需求（数据持久化）"></a>实现本地存储需求（数据持久化）</h1><p><strong>放在utils工具文件夹中</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 本地存储相关方法模块 (数据持久化)</span><br><span class="line"></span><br><span class="line">// 存储数据（增，改）</span><br><span class="line">export const setItem = (key, value) =&gt; &#123;</span><br><span class="line">  // 将引用数据类型（数组，对象）转化为json字符串进行存储</span><br><span class="line">  if (typeof value === &#x27;object&#x27;) &#123;</span><br><span class="line">    value = JSON.stringify(value)</span><br><span class="line">  &#125;</span><br><span class="line">  localStorage.setItem(key, value)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 获取数据（查）</span><br><span class="line">export const getItem = key =&gt; &#123;</span><br><span class="line">  const data = localStorage.getItem(key)</span><br><span class="line">  try &#123;</span><br><span class="line">    return JSON.parse(data)</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    return data</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 删除数据（删）</span><br><span class="line">export const removeItem = key =&gt; &#123;</span><br><span class="line">  localStorage.removeItem(key)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            <h1 id="实现本地存储需求（数据持久化）"><a href="#实现本地存储需求（数据持久化）" class="headerlink" title="实现本地存储需求（数据持久化）"></a>实现本地存储需求（数据持久化）</h1><h3 id="放在utils工具文件夹中"><a href="#放在utils工具文件夹中" class="headerlink" title="放在utils工具文件夹中"></a>放在utils工具文件夹中</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 本地存储相关方法模块 (数据持久化)</span><br><span class="line"></span><br><span class="line">// 存储数据（增，改）</span><br><span class="line">export const setItem = (key, value) =&gt; &#123;</span><br><span class="line">  // 将引用数据类型（数组，对象）转化为json字符串进行存储</span><br><span class="line">  if (typeof value === &#x27;object&#x27;) &#123;</span><br><span class="line">    value = JSON.stringify(value)</span><br><span class="line">  &#125;</span><br><span class="line">  localStorage.setItem(key, value)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 获取数据（查）</span><br><span class="line">export const getItem = key =&gt; &#123;</span><br><span class="line">  const data = localStorage.getItem(key)</span><br><span class="line">  try &#123;</span><br><span class="line">    return JSON.parse(data)</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    return data</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 删除数据（删）</span><br><span class="line">export const removeItem = key =&gt; &#123;</span><br><span class="line">  localStorage.removeItem(key)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
@@ -113,7 +109,7 @@
     </div>
     
         <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E9%9C%80%E6%B1%82%EF%BC%88%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">实现本地存储需求（数据持久化）</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E9%9C%80%E6%B1%82%EF%BC%88%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">实现本地存储需求（数据持久化）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%BE%E5%9C%A8utils%E5%B7%A5%E5%85%B7%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD"><span class="toc-number">1.0.1.</span> <span class="toc-text">放在utils工具文件夹中</span></a></li></ol></li></ol></li></ol>
         </div>
     
 </div>
