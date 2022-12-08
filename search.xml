@@ -2456,5 +2456,8 @@
     <content><![CDATA[<h1 id="实现本地存储需求（数据持久化）"><a href="#实现本地存储需求（数据持久化）" class="headerlink" title="实现本地存储需求（数据持久化）"></a>实现本地存储需求（数据持久化）</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 本地存储相关方法模块 (数据持久化)</span><br><span class="line"></span><br><span class="line">// 存储数据（增，改）</span><br><span class="line">export const setItem = (key, value) =&gt; &#123;</span><br><span class="line">  // 将引用数据类型（数组，对象）转化为json字符串进行存储</span><br><span class="line">  if (typeof value === &#x27;object&#x27;) &#123;</span><br><span class="line">    value = JSON.stringify(value)</span><br><span class="line">  &#125;</span><br><span class="line">  localStorage.setItem(key, value)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 获取数据（查）</span><br><span class="line">export const getItem = key =&gt; &#123;</span><br><span class="line">  const data = localStorage.getItem(key)</span><br><span class="line">  try &#123;</span><br><span class="line">    return JSON.parse(data)</span><br><span class="line">  &#125; catch (error) &#123;</span><br><span class="line">    return data</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 删除数据（删）</span><br><span class="line">export const removeItem = key =&gt; &#123;</span><br><span class="line">  localStorage.removeItem(key)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <tags>
+        <tag>tags</tag>
+      </tags>
   </entry>
 </search>
